@@ -4,6 +4,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --font1: "Almarai", sans-serif;
+  --font2: "Bricolage Grotesque", sans-serif;
 }
 
 .dark {
@@ -25,4 +27,16 @@ body {
 
 .font-serif {
   font-family: "Balance Serif", Georgia, serif;
+}
+
+.font-almarai {
+  font-family: var(--font1);
+}
+
+.font-bricolage {
+  font-family: var(--font2);
+}
+
+.font-instrument {
+  font-family: var(--font3);
 }

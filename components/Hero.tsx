@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -43,25 +43,25 @@ export default function Hero() {
             whileHover={{ x: -10 }}
             className="absolute left-0 top-[-20px] w-[180px] h-[220px]"
           >
-            <Image
+            {/* <Image
               src=""
               alt="Skincare product"
               width={180}
               height={220}
               className="object-cover rounded-lg"
-            />
+            /> */}
           </motion.div>
           <motion.div
             whileHover={{ x: -10 }}
             className="absolute left-10 top-[120px] w-[140px] h-[180px]"
           >
-            <Image
+            {/* <Image
               src=""
               alt="Skincare product"
               width={140}
               height={180}
               className="object-cover rounded-lg"
-            />
+            /> */}
           </motion.div>
 
           {/* Right Images */}
@@ -69,25 +69,25 @@ export default function Hero() {
             whileHover={{ x: 10 }}
             className="absolute right-0 top-[-10px] w-[200px] h-[220px]"
           >
-            <Image
+            {/* <Image
               src=""
               alt="Skincare product"
               width={200}
               height={220}
               className="object-cover rounded-lg"
-            />
+            /> */}
           </motion.div>
           <motion.div
             whileHover={{ x: 10 }}
             className="absolute right-12 top-[140px] w-[150px] h-[180px]"
           >
-            <Image
+            {/* <Image
               src=""
               alt="Skincare product"
               width={150}
               height={180}
               className="object-cover rounded-lg"
-            />
+            /> */}
           </motion.div>
 
           {/* Bottom Barely Visible Image */}
