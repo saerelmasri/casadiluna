@@ -1,11 +1,13 @@
-import Hero from "@/components/Hero";
+import Hero from "@/components/Sections/Hero";
+import ShopSections from "@/components/Sections/ShopSection/ShopSections";
 // import PopularItems from "@/components/PopularItems";
 
 export default function Home() {
   return (
     <div>
       <Hero />
-      {/* <PopularItems/> */}
+      <ShopSections />
+      {/* <PopularItems /> */}
     </div>
   );
 }

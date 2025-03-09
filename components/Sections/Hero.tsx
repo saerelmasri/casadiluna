@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import FadeButton from "../common/FadeButton";
 
 const slides = [
   {
@@ -103,18 +102,10 @@ export default function Hero() {
         >
           {slides[currentSlide].description}
         </p>
-        <Link
-          href="/"
-          className={`mt-6 bg-white text-black py-3 px-6 rounded-full flex items-center text-xs transition-opacity duration-500 ease-in-out group ${
-            fadeOut ? "opacity-0" : "opacity-100"
-          } hover:bg-black hover:text-white`}
-        >
-          {slides[currentSlide].buttonText}
-          <ArrowRight
-            size="16"
-            className="ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
-          />
-        </Link>
+        <FadeButton
+          buttonText={slides[currentSlide].buttonText}
+          fadeOut={fadeOut}
+        />
       </div>
 
       {/* Page Indicator Buttons */}

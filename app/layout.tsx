@@ -1,7 +1,7 @@
 import type React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/NavBar";
+import Navbar from "@/components/Sections/NarBar/NavBar";
 import {
   Almarai,
   Bricolage_Grotesque,
