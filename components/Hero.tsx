@@ -1,110 +1,136 @@
 "use client";
 
-// import Image from "next/image";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+
+const slides = [
+  {
+    type: "single",
+    image: "/images/hero2.jpg",
+    title: "clean & natural skincare.",
+    description: "Made in France and 100% vegan.",
+    buttonText: "discover our products",
+  },
+  {
+    type: "split",
+    leftImage: "/images/hero1.jpg",
+    rightImage: "/images/hero3.jpg",
+    title: "ethical beauty, sustainable impact.",
+    description:
+      "Committed to sustainable beauty and minimizing our impact on the planet.",
+    buttonText: "about us",
+  },
+  {
+    type: "single",
+    image: "/images/hero4.jpg",
+    title: "transform your skin now.",
+    description:
+      "Tone your skin and reduce cellulite with our X body selection.",
+    buttonText: "shop beauty tools",
+  },
+];
 
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [fadeOut, setFadeOut] = useState(false);
+
+  // Auto-change slides every 10 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeOut(true); // Start fading out
+
+      // After fade-out completes, change the slide and fade it in
+      setTimeout(() => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length); // Change slide
+        setFadeOut(false); // Start fading in the new slide
+      }, 40); // Matches fade-out duration (500ms)
+    }, 20000); // Change slide every 10 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative bg-[#bbb59e] min-h-[90vh] flex items-center overflow-hidden">
-      <div className="container mx-auto px-4 py-16 relative flex flex-col items-center text-center">
-        {/* Heading & Button */}
-        <p className="text-white text-sm tracking-wider uppercase font-semibold">
-          1000+ TOP BEAUTY PRODUCTS IN ONE PLACE
-        </p>
-        <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-serif leading-tight max-w-2xl">
-          Ideal Skin Care Products for Every Skin Type
-        </h1>
-        <Link
-          href="/catalog"
-          className="mt-6 bg-[#7a7665] hover:bg-[#5d5a4e] text-white py-3 px-6 rounded flex items-center transition-colors duration-300"
-        >
-          Explore Our Store
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 ml-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
+    <section className="relative min-h-[100vh] flex items-center overflow-hidden">
+      {/* Background Images */}
+      <div
+        className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out ${
+          fadeOut ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        {slides[currentSlide].type === "single" ? (
+          <div
+            className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-500 ${
+              fadeOut ? "opacity-10" : "opacity-100"
+            }`}
+            style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
+          />
+        ) : (
+          <div className="absolute inset-0 flex w-full h-full">
+            <div
+              className={`w-1/2 h-full bg-cover bg-center transition-opacity duration-500 ${
+                fadeOut ? "opacity-0" : "opacity-100"
+              }`}
+              style={{
+                backgroundImage: `url(${slides[currentSlide].leftImage})`,
+              }}
             />
-          </svg>
-        </Link>
-
-        {/* Floating Images */}
-        <div className="relative w-full max-w-6xl mx-auto mt-8">
-          {/* Left Images */}
-          <motion.div
-            whileHover={{ x: -10 }}
-            className="absolute left-0 top-[-20px] w-[180px] h-[220px]"
-          >
-            {/* <Image
-              src=""
-              alt="Skincare product"
-              width={180}
-              height={220}
-              className="object-cover rounded-lg"
-            /> */}
-          </motion.div>
-          <motion.div
-            whileHover={{ x: -10 }}
-            className="absolute left-10 top-[120px] w-[140px] h-[180px]"
-          >
-            {/* <Image
-              src=""
-              alt="Skincare product"
-              width={140}
-              height={180}
-              className="object-cover rounded-lg"
-            /> */}
-          </motion.div>
-
-          {/* Right Images */}
-          <motion.div
-            whileHover={{ x: 10 }}
-            className="absolute right-0 top-[-10px] w-[200px] h-[220px]"
-          >
-            {/* <Image
-              src=""
-              alt="Skincare product"
-              width={200}
-              height={220}
-              className="object-cover rounded-lg"
-            /> */}
-          </motion.div>
-          <motion.div
-            whileHover={{ x: 10 }}
-            className="absolute right-12 top-[140px] w-[150px] h-[180px]"
-          >
-            {/* <Image
-              src=""
-              alt="Skincare product"
-              width={150}
-              height={180}
-              className="object-cover rounded-lg"
-            /> */}
-          </motion.div>
-
-          {/* Bottom Barely Visible Image */}
-          {/* <motion.div
-            whileHover={{ y: 10 }}
-            className="absolute bottom-[-40px] left-1/2 transform -translate-x-1/2 w-[180px] h-[100px]"
-          >
-            <Image
-              src=""
-              alt="Skincare product"
-              width={180}
-              height={100}
-              className="object-cover rounded-lg"
+            <div
+              className={`w-1/2 h-full bg-cover bg-center transition-opacity duration-500 ${
+                fadeOut ? "opacity-0" : "opacity-100"
+              }`}
+              style={{
+                backgroundImage: `url(${slides[currentSlide].rightImage})`,
+              }}
             />
-          </motion.div> */}
-        </div>
+          </div>
+        )}
       </div>
+
+      {/* Content */}
+      <div className="relative w-full mx-auto px-6 py-16 flex flex-col items-start text-white z-10">
+        <h1
+          className={`text-8xl font-bricolage font-medium max-w-3xl transition-opacity duration-500 ease-in-out ${
+            fadeOut ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          {slides[currentSlide].title}
+        </h1>
+        <p
+          className={`leading-tight max-w-2xl font-instrument text-sm mt-4 transition-opacity duration-500 ease-in-out ${
+            fadeOut ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          {slides[currentSlide].description}
+        </p>
+        <Link
+          href="/"
+          className={`mt-6 bg-white text-black py-3 px-6 rounded-full flex items-center text-xs transition-opacity duration-500 ease-in-out group ${
+            fadeOut ? "opacity-0" : "opacity-100"
+          } hover:bg-black hover:text-white`}
+        >
+          {slides[currentSlide].buttonText}
+          <ArrowRight
+            size="16"
+            className="ml-1 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+          />
+        </Link>
+      </div>
+
+      {/* Page Indicator Buttons */}
+      {/* <div className="absolute bottom-6 right-6 flex space-x-2 z-10">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            className={`w-2 h-2 rounded-full transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-white ${
+              index === currentSlide
+                ? "bg-white opacity-100"
+                : "bg-white opacity-50"
+            }`}
+            onClick={() => setCurrentSlide(index)}
+          />
+        ))}
+      </div> */}
     </section>
   );
 }

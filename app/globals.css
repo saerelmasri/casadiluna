@@ -40,3 +40,16 @@ body {
 .font-instrument {
   font-family: var(--font3);
 }
+
+.women-hero-1 {
+  background-image: url("../public/images/hero2.jpg");
+}
+.women-hero-2 {
+  background-image: url("../public/images/hero1.jpg");
+}
+.women-hero-3 {
+  background-image: url("../public/images/hero4.jpg");
+}
+.product-hero {
+  background-image: url("../public/images/hero3.jpg");
+}

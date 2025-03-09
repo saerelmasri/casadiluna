@@ -14,7 +14,7 @@ const almarai = Almarai({
   variable: "--font1",
 });
 const bricolage = Bricolage_Grotesque({
-  weight: ["200", "800"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--font2",
 });
