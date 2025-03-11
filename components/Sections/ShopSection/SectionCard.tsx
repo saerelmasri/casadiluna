@@ -19,8 +19,8 @@ export default function SectionCard(props: SectionCardProps) {
       <div className="w-full text-right h-[80%] -rotate-90 py-5 px-10">
         <h1 className="text-6xl font-bricolage text-white">{props.title}</h1>
       </div>
-      <div className="relative w-full px-6 py-16 flex flex-col items-start text-white z-10">
-        <CustomButton buttonText={props.buttonTitle} />
+      <div className="relative w-full p-10 flex flex-col items-start z-10">
+        <CustomButton buttonText={props.buttonTitle} href="" variant="outline"/>
       </div>
     </Link>
   );
