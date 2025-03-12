@@ -1,3 +1,4 @@
+import ScrollTextReveal from "@/components/Sections/AboutUs/AboutUs";
 import CallToActionVideo from "@/components/Sections/CallToAction/CallToActionVideo";
 import Hero from "@/components/Sections/Hero";
 import IngredientsSection from "@/components/Sections/Ingredients/IngredientsSection";
@@ -12,6 +13,7 @@ export default function Home() {
       {/* <PopularItems /> */}
       <IngredientsSection/>
       <CallToActionVideo/>
+      <ScrollTextReveal/>
     </div>
   );
 }
