@@ -89,14 +89,14 @@ export default function Hero() {
       {/* Content */}
       <div className="relative w-full mx-auto px-6 py-16 flex flex-col items-start text-white z-10">
         <h1
-          className={`text-8xl font-bricolage font-medium max-w-3xl transition-opacity duration-500 ease-in-out ${
+          className={`text-5xl md:text-6xl lg:text-8xl font-bricolage font-medium max-w-3xl transition-opacity duration-500 ease-in-out ${
             fadeOut ? "opacity-0" : "opacity-100"
           }`}
         >
           {slides[currentSlide].title}
         </h1>
         <p
-          className={`leading-tight max-w-2xl font-instrument text-sm mt-4 transition-opacity duration-500 ease-in-out ${
+          className={`leading-tight max-w-2xl font-instrument text-md mt-4 transition-opacity duration-500 ease-in-out ${
             fadeOut ? "opacity-0" : "opacity-100"
           }`}
         >

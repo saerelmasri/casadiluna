@@ -5,12 +5,13 @@ import CustomButton from "@/components/common/CustomButton";
 export default function IngredientsSection() {
   return (
     <section
-      className="relative min-h-[120vh] flex overflow-hidden bg-cover bg-center"
+      className="relative min-h-[120vh] flex flex-col lg:flex-row overflow-hidden bg-cover bg-center"
       style={{ backgroundImage: "url('/images/bg.jpg')", opacity: "0.9" }}
     >
-      <div className="absolute top-0 left-0 max-w-[40%] p-6">
-        <div className="py-14 pl-10 space-y-4">
-          <h2 className="text-6xl font-bricolage lowercase text-wrap">
+      {/* Text and Button Section */}
+      <div className="absolute top-0 left-0 w-full lg:max-w-[40%] p-6 z-10">
+        <div className="py-14 lg:pl-10 space-y-4">
+          <h2 className="text-4xl lg:text-6xl font-bricolage lowercase">
             Precious ingredients sourcing.
           </h2>
           <p className="font-instrument">
@@ -19,43 +20,46 @@ export default function IngredientsSection() {
             ingredients from the best organic crops and wild harvesting. Our raw
             ingredients are chosen for their exceptional properties on the skin.
           </p>
-          <div className=" w-full flex flex-col items-start z-10">
+          <div className="w-full flex flex-col items-start">
             <CustomButton
               buttonText="all ingredients"
               href=""
-              variant="outline"
+              variant="default"
               size="lg"
             />
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-40 w-[20%] h-[50%] p-10 flex flex-col justify-center">
+      {/* Image Section 1 - Botanical Complex */}
+      <div className="absolute bottom-30 left-2 md:bottom-20 md:left-10 lg:bottom-10 lg:left-40 w-[50%] lg:w-[20%] h-[30%] lg:h-[50%] p-6 flex flex-col">
         <div
           className="bg-cover bg-center w-full h-full"
           style={{ backgroundImage: "url('/images/flowers.jpg')" }}
         />
-        <p className="font-instrument text-black text-sm">
+        <p className="font-instrument text-black text-sm text-left">
           Complex of botanical and wild plants
         </p>
       </div>
 
-      <div className="absolute top-50 right-150 w-[20%] h-[50%] p-10 flex flex-col justify-center">
+      {/* Image Section 2 - Precious Marula Oil */}
+      <div className="hidden lg:block absolute top-50 right-2 md:top-1/2 md:right-10 lg:top-1/4 lg:right-20 w-[20%] h-[50%] p-6 flex-col justify-center">
         <div
           className="bg-cover bg-center w-full h-full"
           style={{ backgroundImage: "url('/images/fruits.jpg')" }}
         />
-        <p className="font-instrument text-black text-sm">
+        <p className="font-instrument text-black text-sm text-left">
           Precious marula oil
         </p>
       </div>
 
-      <div className="absolute bottom-10 right-40 w-[20%] h-[50%] p-10 flex flex-col justify-center">
+      {/* Image Section 3 - Organic Olive Oil */}
+      <div className="absolute w-[50%] bottom-2 right-2 lg:bottom-10 lg:right-150 lg:w-[20%] h-[30%] lg:h-[50%] p-6 flex flex-col justify-center">
         <div
           className="bg-cover bg-center w-full h-full"
           style={{ backgroundImage: "url('/images/olive.jpg')" }}
         />
-        <p className="font-instrument text-black text-sm">Organic olive oil</p>
+        <p className="font-instrument text-black text-sm text-left">Organic olive oil</p>
       </div>
     </section>
   );
