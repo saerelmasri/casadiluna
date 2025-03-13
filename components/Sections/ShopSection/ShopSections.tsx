@@ -24,7 +24,7 @@ export default function ShopSections() {
   console.log(cardContent);
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden">
+    <section className="relative min-h-[80vh] flex flex-col lg:flex-row overflow-hidden">
       {cardContent.map((content, index) => {
         return (
           <SectionCard

@@ -5,7 +5,7 @@ import CustomButton from "@/components/common/CustomButton";
 export default function IngredientsSection() {
   return (
     <section
-      className="relative min-h-[120vh] flex flex-col lg:flex-row overflow-hidden bg-cover bg-center"
+      className="relative min-h-[110vh] flex flex-col lg:flex-row overflow-hidden bg-cover bg-center"
       style={{ backgroundImage: "url('/images/bg.jpg')", opacity: "0.9" }}
     >
       {/* Text and Button Section */}

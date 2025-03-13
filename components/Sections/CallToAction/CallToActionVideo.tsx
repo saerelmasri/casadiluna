@@ -5,7 +5,7 @@ import { Dot } from "lucide-react";
 
 export default function CallToActionVideo() {
   return (
-    <section className="relative lg:min-h-[110vh] flex flex-col md:flex-row overflow-hidden">
+    <section className="relative md:min-h-[100vh] flex flex-col md:flex-row overflow-hidden">
       <div
         className="w-full p-8 lg:p-24 lg:w-[50%] bg-center bg-cover flex items-center justify-center"
         style={{ backgroundImage: "url('/images/texture1.jpg')" }}
