@@ -1,8 +1,75 @@
 "use client";
 
 import { Dot } from "lucide-react";
-import ItemCard from "./ItemCard";
+import ProductCarousel from "./ProductCarrousel";
+import { ItemProps } from "./ItemCard";
 
+const items: ItemProps[] = [
+  {
+    title: "Illuminate",
+    itemName: "Illuminating cleansing gel",
+    itemPhoto: "/images/product.png",
+    hoverPhoto: "/images/face.jpg",
+    price: "36,00",
+    itemLink: "",
+  },
+  {
+    title: "Unify",
+    itemName: "Unifying serum spray",
+    itemPhoto: "/images/product.png",
+    hoverPhoto: "/images/face.jpg",
+    price: "34,00",
+    itemLink: "",
+  },
+  {
+    title: "Natural Glow",
+    itemName: "Super glow set",
+    itemPhoto: "/images/product.png",
+    hoverPhoto: "/images/face.jpg",
+    price: "82,00",
+    itemLink: "",
+  },
+  {
+    title: "Protect",
+    itemName: "Hydration booster",
+    itemPhoto: "/images/product.png",
+    hoverPhoto: "/images/face.jpg",
+    price: "29,00",
+    itemLink: "",
+  },
+  {
+    title: "Revitalize",
+    itemName: "Vitamin C serum",
+    itemPhoto: "/images/product.png",
+    hoverPhoto: "/images/face.jpg",
+    price: "45,00",
+    itemLink: "",
+  },
+  {
+    title: "Revitalize",
+    itemName: "Vitamin C serum",
+    itemPhoto: "/images/product.png",
+    hoverPhoto: "/images/face.jpg",
+    price: "45,00",
+    itemLink: "",
+  },
+  {
+    title: "Revitalize",
+    itemName: "Vitamin C serum",
+    itemPhoto: "/images/product.png",
+    hoverPhoto: "/images/face.jpg",
+    price: "45,00",
+    itemLink: "",
+  },
+  {
+    title: "Revitalize",
+    itemName: "Vitamin C serum",
+    itemPhoto: "/images/product.png",
+    hoverPhoto: "/images/face.jpg",
+    price: "45,00",
+    itemLink: "",
+  },
+];
 
 export default function PopularItems() {
   return (
@@ -12,12 +79,8 @@ export default function PopularItems() {
           <Dot size={50} />
           <h1 className="font-bricolage text-5xl ">best sellers</h1>
         </div>
-        <div className="h-full flex ">
-          <ItemCard itemName="Super Glow set" itemPhoto="/images/product.png" price="90,00" title="Illuminate"/>
-          
-        </div>
-        <div className="border border-black h-[20%]">
-          <h1>slider</h1>
+        <div className="flex flex-1 h-[100vh]">
+          <ProductCarousel items={items} />
         </div>
       </div>
     </section>
