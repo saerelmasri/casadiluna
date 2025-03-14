@@ -20,7 +20,7 @@ export default function SectionCard(props: SectionCardProps) {
         </h1>
       </div>
       <div className="relative w-full p-5 lg:p-10 flex flex-col items-start z-10">
-        <CustomButton buttonText={props.buttonTitle} href="" variant="outline" />
+        <CustomButton buttonText={props.buttonTitle} href="" variant="outline" size="sm" />
       </div>
     </Link>
   );

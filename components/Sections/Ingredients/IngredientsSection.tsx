@@ -25,14 +25,13 @@ export default function IngredientsSection() {
               buttonText="all ingredients"
               href=""
               variant="default"
-              size="lg"
             />
           </div>
         </div>
       </div>
 
       {/* Image Section 1 - Botanical Complex */}
-      <div className="absolute bottom-30 left-2 md:bottom-20 md:left-10 lg:bottom-10 lg:left-40 w-[50%] lg:w-[20%] h-[30%] lg:h-[50%] p-6 flex flex-col">
+      {/* <div className="hidden absolute bottom-30 left-2 md:bottom-20 md:left-10 lg:bottom-10 lg:left-40 w-[50%] lg:w-[20%] h-[30%] lg:h-[50%] p-6 flex flex-col">
         <div
           className="bg-cover bg-center w-full h-full"
           style={{ backgroundImage: "url('/images/flowers.jpg')" }}
@@ -40,7 +39,7 @@ export default function IngredientsSection() {
         <p className="font-instrument text-black text-sm text-left">
           Complex of botanical and wild plants
         </p>
-      </div>
+      </div> */}
 
       {/* Image Section 2 - Precious Marula Oil */}
       <div className="hidden lg:block absolute top-50 right-2 md:top-1/2 md:right-10 lg:top-1/4 lg:right-20 w-[20%] h-[50%] p-6 flex-col justify-center">

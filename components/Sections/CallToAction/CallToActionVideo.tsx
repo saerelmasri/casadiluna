@@ -39,7 +39,6 @@ export default function CallToActionVideo() {
             <CustomButton
               buttonText="shop now"
               href=""
-              size="lg"
               variant="default"
             />
           </div>

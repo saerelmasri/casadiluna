@@ -26,7 +26,6 @@ export default function AboutUS() {
               buttonText="Learn more"
               variant={"outlineTransparent"}
               href=""
-              size="lg"
             />
           </div>
         </div>
