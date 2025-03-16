@@ -1,5 +1,3 @@
-"use client";
-
 import CustomButton from "@/components/common/CustomButton";
 
 export default function IngredientsSection() {
@@ -58,7 +56,9 @@ export default function IngredientsSection() {
           className="bg-cover bg-center w-full h-full"
           style={{ backgroundImage: "url('/images/olive.jpg')" }}
         />
-        <p className="font-instrument text-black text-sm text-left">Organic olive oil</p>
+        <p className="font-instrument text-black text-sm text-left">
+          Organic olive oil
+        </p>
       </div>
     </section>
   );

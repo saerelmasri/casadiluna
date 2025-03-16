@@ -1,13 +1,13 @@
 import type React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Sections/NarBar/NavBar";
+import Navbar from "@/components/Sections/layout/NarBar/NavBar";
 import {
   Almarai,
   Bricolage_Grotesque,
   Instrument_Sans,
 } from "next/font/google";
-import Footer from "@/components/Sections/Footer/Footer";
+import Footer from "@/components/Sections/layout/Footer/Footer";
 
 const almarai = Almarai({
   weight: ["300", "400", "700", "800"],

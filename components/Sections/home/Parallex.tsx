@@ -1,5 +1,3 @@
-"use client";
-
 import { Dot } from "lucide-react";
 
 export default function Parallex() {

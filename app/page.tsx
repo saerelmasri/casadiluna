@@ -1,14 +1,14 @@
-import AboutUS from "@/components/Sections/AboutUs/AboutUs";
-import CallToAction from "@/components/Sections/CallToAction/CallToAction";
-import CallToActionVideo from "@/components/Sections/CallToAction/CallToActionVideo";
-import ColdEmail from "@/components/Sections/ColdEmailSubscription/ColdEmailSubscription";
-import Hero from "@/components/Sections/Hero";
-import IngredientsSection from "@/components/Sections/Ingredients/IngredientsSection";
-import LatestNews from "@/components/Sections/LatestNews/LatestNews";
-import Parallex from "@/components/Sections/Parallex/Parallex";
-import PopularItems from "@/components/Sections/PopulatItems/PopularItems";
-import Reviews from "@/components/Sections/Reviews/Reviews";
-import ShopSections from "@/components/Sections/ShopSection/ShopSections";
+import AboutUS from "@/components/Sections/home/AboutUs";
+import CallToAction from "@/components/Sections/home/CallToAction";
+import CallToActionVideo from "@/components/Sections/home/CallToActionVideo";
+import ColdEmail from "@/components/Sections/home/ColdEmailSubscription";
+import Hero from "@/components/Sections/home/Hero";
+import IngredientsSection from "@/components/Sections/home/IngredientsSection";
+import LatestNews from "@/components/Sections/home/LatestNews";
+import Parallex from "@/components/Sections/home/Parallex";
+import PopularItems from "@/components/Sections/home/PopularItems";
+import Reviews from "@/components/Sections/home/Reviews";
+import ShopSections from "@/components/Sections/home/ShopSections";
 
 export default function Home() {
   return (

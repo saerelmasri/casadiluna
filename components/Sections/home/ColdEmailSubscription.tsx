@@ -1,5 +1,3 @@
-"use client";
-
 import CustomButton from "@/components/common/CustomButton";
 import { Input } from "@/components/ui/input";
 import { MailOpen } from "lucide-react";

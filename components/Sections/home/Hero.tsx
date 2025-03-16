@@ -1,7 +1,7 @@
 "use client";
 
-import CustomButton from "../common/CustomButton";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import CustomButton from "../../common/CustomButton";
+import { Carousel, CarouselContent, CarouselItem } from "../../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
 const slides = [
@@ -60,7 +60,12 @@ export default function Hero() {
                     {slide.description}
                   </p>
                   <div className="flex py-2">
-                    <CustomButton buttonText={slide.buttonText} href="" size="sm" variant="secondary"/>
+                    <CustomButton
+                      buttonText={slide.buttonText}
+                      href=""
+                      size="sm"
+                      variant="secondary"
+                    />
                   </div>
                 </div>
               </div>

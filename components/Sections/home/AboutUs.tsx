@@ -1,5 +1,3 @@
-"use client";
-
 import CustomButton from "@/components/common/CustomButton";
 import { Dot } from "lucide-react";
 
@@ -9,7 +7,7 @@ export default function AboutUS() {
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center p-4">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex justify-center items-center mb-4">
-            <Dot size={42}/>
+            <Dot size={42} />
             <h3 className="text-sm lowercase tracking-wider text-black">
               About Us
             </h3>

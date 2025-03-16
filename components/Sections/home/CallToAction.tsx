@@ -1,5 +1,3 @@
-"use client";
-
 import CustomButton from "@/components/common/CustomButton";
 
 export default function CallToAction() {

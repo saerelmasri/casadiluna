@@ -1,8 +1,6 @@
-"use client";
-
+import { ItemProps } from "@/components/section-components/home/ItemCard";
+import ProductCarousel from "@/components/section-components/home/ProductCarrousel";
 import { Dot } from "lucide-react";
-import ProductCarousel from "./ProductCarrousel";
-import { ItemProps } from "./ItemCard";
 
 const items: ItemProps[] = [
   {

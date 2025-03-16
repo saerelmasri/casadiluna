@@ -1,6 +1,4 @@
-"use client";
-
-import SectionCard from "./SectionCard";
+import SectionCard from "../../section-components/home/SectionCard";
 
 const cardContent = [
   {

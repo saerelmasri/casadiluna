@@ -1,5 +1,3 @@
-"use client";
-
 import CustomButton from "@/components/common/CustomButton";
 import { Dot } from "lucide-react";
 
@@ -22,7 +20,9 @@ export default function CallToActionVideo() {
         <div className="h-auto lg:h-[50%] w-full p-8 lg:px-7 lg:py-5">
           <div className="flex items-center">
             <Dot size={32} />
-            <p className="lowercase font-instrument text-xs">Nature for your skin</p>
+            <p className="lowercase font-instrument text-xs">
+              Nature for your skin
+            </p>
           </div>
           <h1 className="font-bricolage text-4xl md:text-5xl lg:text-6xl lowercase text-wrap text-[#321e1e]">
             Routines for all skin types.
@@ -36,11 +36,7 @@ export default function CallToActionVideo() {
               powerful active ingredients, carefully selected to nourish,
               protect and enhance every skin type.
             </p>
-            <CustomButton
-              buttonText="shop now"
-              href=""
-              variant="default"
-            />
+            <CustomButton buttonText="shop now" href="" variant="default" />
           </div>
         </div>
       </div>

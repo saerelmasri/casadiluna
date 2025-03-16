@@ -1,7 +1,7 @@
 "use client";
 
 import { Dot } from "lucide-react";
-import NewsCard, { NewsCardProp } from "./NewsCard";
+import NewsCard, { NewsCardProp } from "../../section-components/home/NewsCard";
 import CustomButton from "@/components/common/CustomButton";
 import {
   Carousel,
