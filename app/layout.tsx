@@ -7,6 +7,7 @@ import {
   Bricolage_Grotesque,
   Instrument_Sans,
 } from "next/font/google";
+import Footer from "@/components/Sections/Footer/Footer";
 
 const almarai = Almarai({
   weight: ["300", "400", "700", "800"],
@@ -41,6 +42,7 @@ export default function RootLayout({
       >
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

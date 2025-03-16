@@ -1,7 +1,7 @@
-
 import AboutUS from "@/components/Sections/AboutUs/AboutUs";
 import CallToAction from "@/components/Sections/CallToAction/CallToAction";
 import CallToActionVideo from "@/components/Sections/CallToAction/CallToActionVideo";
+import ColdEmail from "@/components/Sections/ColdEmailSubscription/ColdEmailSubscription";
 import Hero from "@/components/Sections/Hero";
 import IngredientsSection from "@/components/Sections/Ingredients/IngredientsSection";
 import LatestNews from "@/components/Sections/LatestNews/LatestNews";
@@ -16,13 +16,14 @@ export default function Home() {
       <Hero />
       <PopularItems />
       <ShopSections />
-      <IngredientsSection/>
-      <CallToActionVideo/>
-      <AboutUS/>
-      <Reviews/>
-      <Parallex/>
-      <CallToAction/>
-      <LatestNews/>
+      <IngredientsSection />
+      <CallToActionVideo />
+      <AboutUS />
+      <Reviews />
+      <Parallex />
+      <CallToAction />
+      <LatestNews />
+      <ColdEmail />
     </div>
   );
 }
