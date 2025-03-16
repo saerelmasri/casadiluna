@@ -50,7 +50,7 @@ export default function Reviews() {
   };
 
   return (
-    <div className="h-[100vh] bg-[#faf4f0] w-full flex">
+    <div className="bg-[#faf4f0] w-full flex flex-col md:flex-row py-7 ">
       {/* LEFT SIDE - Review Text */}
       <div className="w-1/2 p-5">
         <motion.div
@@ -67,17 +67,21 @@ export default function Reviews() {
                 <Star key={i} size={10} fill="black" />
               ))}
             </div>
-            <p className="font-instrument text-xs">{reviews[currentIndex].name}</p>
+            <p className="font-instrument text-xs">
+              {reviews[currentIndex].name}
+            </p>
           </div>
 
           {/* Review Text */}
-          <div className="px-3 py-2">
-            <p className="font-bricolage text-4xl">{reviews[currentIndex].text}</p>
+          <div className="px-3 py-2 w-[100vw] md:w-[80%]">
+            <p className="font-bricolage md:text-4xl">
+              {reviews[currentIndex].text}
+            </p>
           </div>
         </motion.div>
 
         {/* Navigation Buttons */}
-        <div className="flex space-x-2 h-auto relative top-40 px-2 py-4">
+        <div className="flex space-x-2 h-auto relative px-2 py-4">
           <Button
             variant="outline"
             size={"icon"}
@@ -100,24 +104,30 @@ export default function Reviews() {
       {/* RIGHT SIDE - Image & Product Info */}
       <motion.div
         key={reviews[currentIndex].id}
-        className="w-1/2 flex justify-center items-center"
+        className="w-full md:w-1/2 flex justify-center items-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
         <div
-          className="inset-0 bg-cover bg-center h-[90%] w-[90%] px-7 py-5"
+          className="inset-0 bg-cover bg-center h-[300px] md:h-[80vh] w-[90%] px-7 py-5"
           style={{ backgroundImage: `url(${reviews[currentIndex].image})` }}
         >
           <div className="bg-white w-[40%] flex space-x-5 px-3 py-2">
             <div
               className="inset-0 bg-cover bg-center w-[25%] aspect-[1/1]"
-              style={{ backgroundImage: `url(${reviews[currentIndex].productImage})` }}
+              style={{
+                backgroundImage: `url(${reviews[currentIndex].productImage})`,
+              }}
             />
             <div className="flex flex-col justify-center items-start">
-              <p className="font-instrument text-xs">{reviews[currentIndex].productName}</p>
-              <p className="font-instrument text-[11px] text-gray-500">{reviews[currentIndex].productPrice}</p>
+              <p className="font-instrument text-xs">
+                {reviews[currentIndex].productName}
+              </p>
+              <p className="font-instrument text-[11px] text-gray-500">
+                {reviews[currentIndex].productPrice}
+              </p>
             </div>
           </div>
         </div>

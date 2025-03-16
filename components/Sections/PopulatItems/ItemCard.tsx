@@ -35,17 +35,19 @@ export default function ItemCard(props: ItemProps) {
 
       {/* Default Text */}
       <div className="relative z-10 w-full flex flex-col items-center justify-center py-2 space-y-1 transition-opacity duration-500 ease-in-out group-hover:opacity-0">
-        <p className="font-instrument text-xs text-gray-800">{props.itemName}</p>
+        <p className="font-instrument text-xs text-gray-800">
+          {props.itemName}
+        </p>
         <p className="font-instrument text-sm text-gray-800">${props.price}</p>
       </div>
 
       {/* Hover Button */}
-      <div className="absolute bottom-4 left-0 right-0 mx-auto w-full px-2 py-1 z-10 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100">
+      <div className="absolute bottom-4 left-0 right-0 flex w-full items-center justify-center px-2 py-1 z-10 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100">
         <Button
           asChild
           variant="secondary"
           size="default"
-          className="w-full rounded-lg relative z-20"
+          className="w-[90%] rounded-lg relative z-20"
         >
           <Link
             href="https://www.google.co.ve/?gfe_rd=cr&ei=_xG6VuPtCcvS-AX8oqvoBg&gws_rd=ssl"

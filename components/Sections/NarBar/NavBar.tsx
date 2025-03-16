@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ShoppingBag } from "lucide-react";
 import ActiveMenuEffect from "./ActiveMenu";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -135,17 +134,6 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center space-x-4">
-              <Link
-                href="/cart"
-                className={`p-1 transition-colors ${
-                  scrolling || activeMenu || isMobileMenuOpen
-                    ? "text-black"
-                    : "text-white"
-                }`}
-              >
-                <ShoppingBag className="h-4 w-4" />
-              </Link>
-
               <button
                 className={`md:hidden p-2 rounded ${
                   scrolling || activeMenu || isMobileMenuOpen

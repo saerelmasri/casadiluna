@@ -15,15 +15,15 @@ type ProductCarouselProps = {
 
 export default function ProductCarousel({ items }: ProductCarouselProps) {
   return (
-    <Carousel
-      opts={{ align: "center", }}
-      className="relative w-full "
-    >
+    <Carousel opts={{ align: "center" }} className="relative w-full ">
       {/* Previous Button */}
       <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2 rounded-full z-10" />
       <CarouselContent className="h-[90vh] flex">
         {items.map((item, index) => (
-          <CarouselItem key={index} className="flex-none w-1/4 p-0">
+          <CarouselItem
+            key={index}
+            className="flex-none w-full md:w-1/2 xl:w-1/4 p-0"
+          >
             {" "}
             {/* Set width to 25% for 4 items per slide */}
             <ItemCard {...item} />
