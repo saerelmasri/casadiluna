@@ -4,7 +4,6 @@ import CustomButton from "@/components/common/CustomButton";
 import ItemCard, {
   ItemProps,
 } from "@/components/section-components/home/ItemCard";
-import Category from "@/components/Sections/collections/all/categoryBtn";
 import ParallexAbout from "@/components/Sections/collections/all/ParallexAbout";
 import { ArrowRight, Dot } from "lucide-react";
 import Link from "next/link";
@@ -102,24 +101,8 @@ export default function Shop() {
   };
 
   return (
-    <div className="w-full bg-[#faf4f0]">
-      <div className="w-full mt-[50px] px-9 py-5">
-        <h1 className="lowercase text-5xl font-bricolage ">Shop</h1>
-      </div>
-      <div className="w-full max-w-2xl px-9 py-5">
-        <p className="text-sm font-instrument break-words whitespace-normal">
-          Designed with respect for your skin and the planet, the entire Nüssa
-          skincare range is made in France and certified organic and natural by
-          Ecocert.
-        </p>
-      </div>
-      <div className="w-full flex space-x-10 px-9 py-5">
-        <Category category="face" />
-        <Category category="body" />
-        <Category category="sets" />
-        <Category category="beauty-tools" />
-      </div>
-      <div className="grid grid-cols-4 grid-auto-rows-[500px]">
+    <div className="w-full bg-[#faf4f0] border border-transparent">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 grid-auto-rows-[500px]">
         {items.slice(0, 2).map((item, index) => (
           <div key={index} className="h-[500px] flex">
             <ItemCard {...item} />
@@ -156,7 +139,7 @@ export default function Shop() {
       </div>
       <ParallexAbout />
       <div
-        className="w-full h-screen flex flex-col justify-center items-center bg-[#faf4f0]"
+        className="w-full h-[50vh] md:h-screen flex flex-col justify-center items-center bg-[#faf4f0]"
         onMouseMove={handleMouseMove}
       >
         {hovering && (
@@ -181,7 +164,7 @@ export default function Shop() {
 
         {/* Collection Links */}
         <div
-          className="flex flex-col items-center w-1/4 space-y-7 cursor-none"
+          className="flex flex-col w-1/2 items-center md:w-1/4 md:space-y-7 cursor-none"
           onMouseEnter={() => setHovering(true)}
           onMouseLeave={() => setHovering(false)}
         >
@@ -190,7 +173,10 @@ export default function Shop() {
               key={index}
               className="w-full flex flex-col items-center cursor-none"
             >
-              <Link href="#" className="text-6xl font-bricolage cursor-none">
+              <Link
+                href="#"
+                className="text-2xl md:text-6xl font-bricolage cursor-none"
+              >
                 {category}
               </Link>
               {index !== 3 && (

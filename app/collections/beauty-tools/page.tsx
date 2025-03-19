@@ -14,42 +14,10 @@ const items: ItemProps[] = [
     hoverPhoto: "/images/girl.png",
     price: "36,00",
     itemLink: "",
-  },
-  {
-    title: "Unify",
-    itemName: "Unifying serum spray",
-    itemPhoto: "/images/product.png",
-    hoverPhoto: "/images/girl.png",
-    price: "34,00",
-    itemLink: "",
-  },
-  {
-    title: "Natural Glow",
-    itemName: "Super glow set",
-    itemPhoto: "/images/product.png",
-    hoverPhoto: "/images/girl.png",
-    price: "82,00",
-    itemLink: "",
-  },
-  {
-    title: "Protect",
-    itemName: "Hydration booster",
-    itemPhoto: "/images/product.png",
-    hoverPhoto: "/images/girl.png",
-    price: "29,00",
-    itemLink: "",
-  },
-  {
-    title: "Revitalize",
-    itemName: "Vitamin C serum",
-    itemPhoto: "/images/product.png",
-    hoverPhoto: "/images/girl.png",
-    price: "45,00",
-    itemLink: "",
   }
 ];
 
-export default function Face() {
+export default function BeautyTools() {
   return (
     <div className="w-full bg-[#faf4f0] border">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 grid-auto-rows-[500px]">

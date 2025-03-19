@@ -46,10 +46,18 @@ const items: ItemProps[] = [
     hoverPhoto: "/images/girl.png",
     price: "45,00",
     itemLink: "",
+  },
+  {
+    title: "Revitalize",
+    itemName: "Vitamin C serum",
+    itemPhoto: "/images/product.png",
+    hoverPhoto: "/images/girl.png",
+    price: "45,00",
+    itemLink: "",
   }
 ];
 
-export default function Face() {
+export default function Sets() {
   return (
     <div className="w-full bg-[#faf4f0] border">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 grid-auto-rows-[500px]">

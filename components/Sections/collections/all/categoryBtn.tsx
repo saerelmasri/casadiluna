@@ -5,6 +5,7 @@ import Link from "next/link";
 
 type CategoryProps = {
   category: "face" | "body" | "sets" | "beauty-tools";
+  currentPath: string; // 🔹 Expecting "face", "body", "sets", "beauty-tools"
 };
 
 const categories = {
@@ -24,28 +25,32 @@ const categories = {
     url: "/collections/sets",
   },
   "beauty-tools": {
-    categoryTitle: "beauty tools",
+    categoryTitle: "beauty-tools", // 🔹 Ensure consistency in key naming
     image: "/images/product.png",
     url: "/collections/beauty-tools",
   },
 };
 
-export default function Category(props: CategoryProps) {
-  const { category } = props;
+export default function Category({ category, currentPath }: CategoryProps) {
+  const isActive = currentPath === category; // ✅ Compare currentPath directly with category
+
   return (
-    <Link
-      href={categories[category].url}
-      className="flex flex-col items-center space-y-4"
-    >
-      <div className="relative overflow-hidden flex-shrink-0 w-20 h-20 rounded-full">
+    <Link href={categories[category].url} className="flex flex-col items-center space-y-4">
+      <div
+        className={`relative overflow-hidden flex-shrink-0 w-15 h-15 md:w-20 md:h-20 rounded-full transition-all duration-300 ${
+          isActive ? "border-2 border-black" : "border-none"
+        }`}
+      >
         <Image
           src={categories[category].image || "/placeholder.svg"}
-          alt="Face product"
+          alt={categories[category].categoryTitle}
           layout="fill"
-          className="object-cover transition-transform duration-300 transform hover:scale-105"
+          className="object-cover transform hover:scale-105"
         />
       </div>
-      <p className="font-instrument text-xs">{categories[category].categoryTitle}</p>
+      <p className={`font-instrument text-xs `}>
+        {categories[category].categoryTitle}
+      </p>
     </Link>
   );
 }

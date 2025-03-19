@@ -54,7 +54,7 @@ export default function Footer() {
 
       {/* STRETCH Logo */}
       <div className="max-w-7xl mx-auto mb-8">
-        <h1 className="text-white text-[10rem] leading-none font-bold tracking-tighter">
+        <h1 className="text-white text-7xl md:text-[10rem] leading-none font-bold tracking-tighter">
           ESSENZA
         </h1>
       </div>

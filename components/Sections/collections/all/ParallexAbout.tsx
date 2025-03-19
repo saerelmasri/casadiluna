@@ -4,7 +4,7 @@ import { Dot } from "lucide-react";
 export default function ParallexAbout() {
   return (
     <div
-      className="h-[100vh] w-full flex flex-col md:flex-row justify-between bg-black"
+      className="py-16 w-full flex flex-col md:flex-row justify-between bg-black"
         style={{
           backgroundImage: "url('/images/body.jpg')",
           backgroundSize: "cover",
@@ -20,7 +20,7 @@ export default function ParallexAbout() {
               about us
             </p>
           </div>
-          <h1 className="font-bricolage text-5xl md:text-6xl text-white max-w-4xl">
+          <h1 className="font-bricolage text-3xl md:text-6xl text-white max-w-4xl">
             We believe in beauty that respects nature and enhances your skin.
           </h1>
           <div className="max-w-[200px]">
