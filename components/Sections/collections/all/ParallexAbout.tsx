@@ -13,7 +13,7 @@ export default function ParallexAbout() {
         }}
     >
       <div className="w-full flex flex-col justify-center">
-        <div className="px-2 md:px-6 py-4 space-y-8">
+        <div className="px-4 md:px-12 py-4 space-y-8">
           <div className="flex items-center">
             <Dot color="white" />
             <p className="font-instrument text-sm md:text-xs text-white">

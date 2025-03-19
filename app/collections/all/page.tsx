@@ -119,7 +119,7 @@ export default function Shop() {
         <Category category="sets" />
         <Category category="beauty-tools" />
       </div>
-      <div className="border border-black grid grid-cols-4 grid-auto-rows-[500px]">
+      <div className="grid grid-cols-4 grid-auto-rows-[500px]">
         {items.slice(0, 2).map((item, index) => (
           <div key={index} className="h-[500px] flex">
             <ItemCard {...item} />
@@ -180,19 +180,21 @@ export default function Shop() {
         </div>
 
         {/* Collection Links */}
-        <div className="flex flex-col items-center w-1/4 space-y-7 ">
+        <div
+          className="flex flex-col items-center w-1/4 space-y-7 cursor-none"
+          onMouseEnter={() => setHovering(true)}
+          onMouseLeave={() => setHovering(false)}
+        >
           {["face", "body", "sets", "beauty tools"].map((category, index) => (
-            <div key={index} className="w-full flex flex-col items-center">
-              <Link
-                href="#"
-                className="text-6xl font-bricolage cursor-none"
-                onMouseEnter={() => setHovering(true)}
-                onMouseLeave={() => setHovering(false)}
-              >
+            <div
+              key={index}
+              className="w-full flex flex-col items-center cursor-none"
+            >
+              <Link href="#" className="text-6xl font-bricolage cursor-none">
                 {category}
               </Link>
               {index !== 3 && (
-                <div className="w-full border-t border-gray-400 mt-3" />
+                <div className="w-full border-t border-gray-400 mt-3 cursor-none" />
               )}
             </div>
           ))}
