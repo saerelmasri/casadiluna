@@ -47,7 +47,7 @@ const dummyArticles: NewsCardProp[] = [
 
 export default function LatestNews() {
   return (
-    <section className="h-[100vh]">
+    <section>
       {/* Header Section */}
       <div className="flex justify-between">
         <div className="flex items-center">

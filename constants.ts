@@ -5,19 +5,19 @@ export const NavBarContent = {
         collections: [
           {
             title: "face",
-            url: "",
+            url: "/collections/face",
           },
           {
             title: "body",
-            url: "",
+            url: "/collections/body",
           },
           {
             title: "set",
-            url: "",
+            url: "/collections/set",
           },
           {
             title: "beauty tools",
-            url: "",
+            url: "/collections/beauty-tools",
           },
         ],
       },
@@ -25,19 +25,19 @@ export const NavBarContent = {
         concerns: [
           {
             title: "anti-aging & first wrinkles",
-            url: "",
+            url: "/collections/anti-aging",
           },
           {
             title: "firmness & cellulite",
-            url: "",
+            url: "/collections/firmness-cellulite",
           },
           {
             title: "acne & blemishes",
-            url: "",
+            url: "/collections/acne-blemishes",
           },
           {
             title: "dehydration & dullness",
-            url: "",
+            url: "/collections/dehydration-dullness",
           },
         ],
       },
@@ -45,15 +45,15 @@ export const NavBarContent = {
         activeIngredients: [
           {
             title: "vitamin C",
-            url: "",
+            url: "/product/product1",
           },
           {
             title: "hyaluronic acid",
-            url: "",
+            url: "/product/product2",
           },
           {
             title: "antioxidants",
-            url: "",
+            url: "/product/product3",
           },
         ],
       },
@@ -63,19 +63,19 @@ export const NavBarContent = {
         title: "face",
         subtitle: "take care of your skin",
         imageURL: "/images/face.jpg",
-        url: "",
+        url: "/collections/face",
       },
       {
         title: "super glow set",
         subtitle: "sublimate skin and eyes",
         imageURL: "/images/products.jpg",
-        url: "",
+        url: "/collections/set",
       },
       {
         title: "body",
         subtitle: "find the perfect product",
         imageURL: "/images/body.jpg",
-        url: "",
+        url: "/collections/body",
       },
     ],
   },

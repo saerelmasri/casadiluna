@@ -7,7 +7,7 @@ export default function ColdEmail() {
     <section className="h-auto md:h-[50vh] bg-[#321e1e] flex flex-col md:flex-row">
       <div className="w-full md:w-1/2 flex justify-center items-center">
         <div
-          className="w-full h-64 md:h-[80%] bg-center bg-cover"
+          className="w-[80%] h-64 md:h-[80%] bg-center bg-cover border border-black"
           style={{ backgroundImage: "url('/images/products.jpg')" }}
         />
       </div>

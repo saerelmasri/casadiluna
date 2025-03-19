@@ -36,7 +36,7 @@ export default function ActiveMenuEffect(props: ActiveMenuProps) {
           <ul>
             {items.map((subItem: any, subIndex: number) => (
               <li key={subIndex} className="mb-2">
-                <Link href="" className="text-sm text-black relative group">
+                <Link href={subItem.url} className="text-sm text-black relative group">
                   {subItem.title}
                   <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-black group-hover:w-full transition-all duration-300"></span>
                 </Link>
