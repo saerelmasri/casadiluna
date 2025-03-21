@@ -25,7 +25,7 @@ export const NavBarContent = {
         concerns: [
           {
             title: "anti-aging & first wrinkles",
-            url: "/collections/anti-aging",
+            url: "/collections/anti-aging-first-wrinkles",
           },
           {
             title: "firmness & cellulite",

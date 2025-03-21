@@ -5,7 +5,7 @@ import Link from "next/link";
 
 type CategoryProps = {
   category: "face" | "body" | "sets" | "beauty-tools";
-  currentPath: string; // 🔹 Expecting "face", "body", "sets", "beauty-tools"
+  currentPath: string; 
 };
 
 const categories = {
@@ -25,7 +25,7 @@ const categories = {
     url: "/collections/sets",
   },
   "beauty-tools": {
-    categoryTitle: "beauty-tools", // 🔹 Ensure consistency in key naming
+    categoryTitle: "beauty-tools", 
     image: "/images/product.png",
     url: "/collections/beauty-tools",
   },

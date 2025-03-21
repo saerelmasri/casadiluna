@@ -4,7 +4,6 @@ import CustomButton from "@/components/common/CustomButton";
 import ItemCard, {
   ItemProps,
 } from "@/components/section-components/home/ItemCard";
-import ParallexAbout from "@/components/Sections/collections/all/ParallexAbout";
 import { Dot } from "lucide-react";
 const items: ItemProps[] = [
   {
@@ -49,7 +48,8 @@ const items: ItemProps[] = [
   }
 ];
 
-export default function Face() {
+export default function CollectionPage() {
+    // const {category} = params;
   return (
     <div className="w-full bg-[#faf4f0] border">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 grid-auto-rows-[500px]">
@@ -87,7 +87,6 @@ export default function Face() {
           </div>
         ))}
       </div>
-      <ParallexAbout />
     </div>
   );
 }
