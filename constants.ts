@@ -85,7 +85,7 @@ export const NavBarContent = {
         brand: [
           {
             title: "about us",
-            url: "",
+            url: "/learn/about-us",
           },
           {
             title: "body care",

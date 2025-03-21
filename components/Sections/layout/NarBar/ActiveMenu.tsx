@@ -51,7 +51,7 @@ export default function ActiveMenuEffect(props: ActiveMenuProps) {
   const renderPhotos = (content: any) => {
     return content.map((item: any, index: number) => {
       return (
-        <Link key={index} href="" className="space-y-1">
+        <Link key={index} href={item.url} className="space-y-1">
           <div className="relative overflow-hidden flex-shrink-0 w-64 h-64">
             <Image
               src={item.imageURL || "/placeholder.svg"}
