@@ -18,10 +18,10 @@ export default function Shop() {
 
   return (
     <>
-      <div className="relative h-[120vh] bg-[#3e2626] flex justify-center items-center overflow-hidden">
+      <div className="relative h-[100vh] bg-[#3e2626] flex justify-center items-center overflow-hidden">
         {/* Left Image */}
         <div
-          className="absolute left-10 top-1/4 w-[300px] h-[400px] bg-cover bg-center transition-transform duration-500"
+          className="absolute left-10 top-1/5 md:top-1/4 w-[200px] h-[300px] md:w-[400px] md:h-[500px] bg-cover bg-center transition-transform duration-500"
           style={{
             backgroundImage: "url('/images/body.jpg')",
             transform: `translateY(${scrollY * 0.15}px)`,
@@ -30,7 +30,7 @@ export default function Shop() {
 
         {/* Right Image */}
         <div
-          className="absolute right-10 top-1/3 w-[250px] h-[350px] bg-cover bg-center transition-transform duration-500"
+          className="absolute right-10 top-1/3 w-[250px] h-[350px] md:w-[350px] md:h-[450px] bg-cover bg-center transition-transform duration-500"
           style={{
             backgroundImage: "url('/images/body.jpg')",
             transform: `translateY(${scrollY * 0.2}px)`,
@@ -38,14 +38,14 @@ export default function Shop() {
         />
 
         {/* Text Section */}
-        <div className="flex flex-col justify-center items-center text-center space-y-[100px]">
-          <div className="flex items-center space-x-2">
+        <div className="flex flex-col justify-center items-center text-center space-y-5">
+          <div className="flex items-center space-x-2 z-10">
             <Dot color="white" size={24} />
-            <p className="text-white text-xs font-instrument lowercase">
+            <p className="text-white text-md md:text-lg font-instrument lowercase">
               behind the brand
             </p>
           </div>
-          <h1 className="text-white font-bricolage text-7xl mt-4 relative">
+          <h1 className="text-white font-bricolage text-5xl md: lg:text-7xl xl:text-9xl mt-4 relative">
             how it all began.
           </h1>
         </div>
@@ -53,20 +53,28 @@ export default function Shop() {
       <ManifestoSection />
       <Parallex />
       <GoodToKnow />
-      <div className="h-[100vh] flex">
-        <Link href="" className="border border-black w-1/2 flex flex-col justify-center items-center space-y-4">
-          <h1 className="lowercase text-5xl text-black font-bricolage">
+      <div className="h-[100vh] flex flex-col md:flex-row">
+        <Link
+          href=""
+          className="w-full h-1/2 md:w-1/2 md:h-full flex flex-col justify-center items-center space-y-4 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/ocean.jpg')" }}
+        >
+          <h1 className="lowercase text-5xl md:text-6xl text-white font-bricolage">
             Bod care.
           </h1>
-          <p className="text-md text-black font-bricolage">
+          <p className="text-md text-white font-bricolage">
             Nutrition and regeneration for all.
           </p>
         </Link>
-        <Link href="" className="border border-black w-1/2 flex flex-col justify-center items-center space-y-4">
-          <h1 className="lowercase text-5xl text-black font-bricolage">
+        <Link
+          href=""
+          className="w-full h-1/2 md:w-1/2 md:h-full flex flex-col justify-center items-center space-y-4 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/matas.jpg')" }}
+        >
+          <h1 className="lowercase text-5xl md:text-6xl text-white font-bricolage">
             Active ingredients.
           </h1>
-          <p className="text-md text-black font-bricolage">
+          <p className="text-md text-white font-bricolage">
             A pioneer in sourcing precious assets.
           </p>
         </Link>

@@ -2,9 +2,9 @@ import { Dot } from "lucide-react";
 
 export default function ManifestoSection() {
   return (
-    <section className="relative h-[120vh] flex flex-col md:flex-row overflow-hidden">
+    <section className="relative h-full md:h-[100vh] flex flex-col md:flex-row overflow-hidden">
       <div className="bg-[#f1e4d3] w-full h-[500px] lg:h-full lg:w-[50%] flex flex-col relative">
-        <div className="h-auto lg:h-[50%] w-full p-8 lg:px-7 lg:py-5 space-y-[250px] z-10">
+        <div className="h-auto lg:h-[50%] w-full p-8 lg:px-7 lg:py-5 md:space-y-[250px] z-10">
           <div className="flex items-center">
             <Dot size={32} />
             <p className="lowercase font-instrument text-xs">Manifesto</p>
@@ -25,7 +25,7 @@ export default function ManifestoSection() {
       </div>
       <div
         className="w-full p-8 lg:p-24 lg:w-[50%] bg-center bg-cover flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/texture1.jpg')" }}
+        style={{ backgroundImage: "url('/images/waves.jpg')" }}
       >
         <div className="w-52 md:w-72 lg:w-96 aspect-square">
           {/* <img

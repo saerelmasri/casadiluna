@@ -12,7 +12,7 @@ export default function Parallex() {
       }}
     >
       <div className="w-full md:w-[60%] flex items-center">
-        <div className="px-2 md:px-6 py-4 space-y-4">
+        <div className="px-4 md:px-6 py-4 space-y-4">
           <div className="flex items-center">
             <Dot color="white" />
             <p className="font-instrument text-sm md:text-xs text-white lowercase">
