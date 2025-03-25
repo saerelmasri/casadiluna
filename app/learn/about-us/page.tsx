@@ -5,7 +5,7 @@ import { Dot } from "lucide-react";
 import ManifestoSection from "@/components/Sections/about/Manifesto";
 import Parallex from "@/components/Sections/about/Parallex";
 import GoodToKnow from "@/components/Sections/about/goodToKnow";
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function Shop() {
   const [scrollY, setScrollY] = useState(0);
@@ -45,15 +45,15 @@ export default function Shop() {
               behind the brand
             </p>
           </div>
-          <h1 className="text-white font-bricolage text-5xl md: lg:text-7xl xl:text-9xl mt-4 relative">
-            how it all began.
+          <h1 className="text-white font-bricolage text-5xl md: lg:text-7xl xl:text-9xl mt-4 relative lowercase">
+            How it all began.
           </h1>
         </div>
       </div>
       <ManifestoSection />
       <Parallex />
       <GoodToKnow />
-      <div className="h-[100vh] flex flex-col md:flex-row">
+      {/* <div className="h-[100vh] flex flex-col md:flex-row">
         <Link
           href=""
           className="w-full h-1/2 md:w-1/2 md:h-full flex flex-col justify-center items-center space-y-4 bg-cover bg-center"
@@ -78,7 +78,7 @@ export default function Shop() {
             A pioneer in sourcing precious assets.
           </p>
         </Link>
-      </div>
+      </div> */}
     </>
   );
 }

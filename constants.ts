@@ -21,42 +21,42 @@ export const NavBarContent = {
           },
         ],
       },
-      {
-        concerns: [
-          {
-            title: "anti-aging & first wrinkles",
-            url: "/collections/anti-aging-first-wrinkles",
-          },
-          {
-            title: "firmness & cellulite",
-            url: "/collections/firmness-cellulite",
-          },
-          {
-            title: "acne & blemishes",
-            url: "/collections/acne-blemishes",
-          },
-          {
-            title: "dehydration & dullness",
-            url: "/collections/dehydration-dullness",
-          },
-        ],
-      },
-      {
-        activeIngredients: [
-          {
-            title: "vitamin C",
-            url: "/product/product1",
-          },
-          {
-            title: "hyaluronic acid",
-            url: "/product/product2",
-          },
-          {
-            title: "antioxidants",
-            url: "/product/product3",
-          },
-        ],
-      },
+      // {
+      //   concerns: [
+      //     {
+      //       title: "anti-aging & first wrinkles",
+      //       url: "/collections/anti-aging-first-wrinkles",
+      //     },
+      //     {
+      //       title: "firmness & cellulite",
+      //       url: "/collections/firmness-cellulite",
+      //     },
+      //     {
+      //       title: "acne & blemishes",
+      //       url: "/collections/acne-blemishes",
+      //     },
+      //     {
+      //       title: "dehydration & dullness",
+      //       url: "/collections/dehydration-dullness",
+      //     },
+      //   ],
+      // },
+      // {
+      //   activeIngredients: [
+      //     {
+      //       title: "vitamin C",
+      //       url: "/product/product1",
+      //     },
+      //     {
+      //       title: "hyaluronic acid",
+      //       url: "/product/product2",
+      //     },
+      //     {
+      //       title: "antioxidants",
+      //       url: "/product/product3",
+      //     },
+      //   ],
+      // },
     ],
     photos: [
       {
@@ -87,25 +87,25 @@ export const NavBarContent = {
             title: "about us",
             url: "/learn/about-us",
           },
-          {
-            title: "body care",
-            url: "",
-          },
-          {
-            title: "active ingredients",
-            url: "",
-          },
+          // {
+          //   title: "body care",
+          //   url: "",
+          // },
+          // {
+          //   title: "active ingredients",
+          //   url: "",
+          // },
         ],
       },
       {
         info: [
           {
             title: "faq",
-            url: "",
+            url: "/learn/faq",
           },
           {
             title: "contact",
-            url: "",
+            url: "/learn/contact",
           },
         ],
       },
