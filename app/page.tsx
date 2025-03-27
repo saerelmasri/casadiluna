@@ -22,6 +22,11 @@ export default function Home() {
       <Reviews />
       <Parallex />
       <CallToAction />
+      <CallToAction />
+      <CallToAction />
+      <CallToAction />
+      <CallToAction />
+      <CallToAction />
       <LatestNews />
       <ColdEmail />
     </div>
