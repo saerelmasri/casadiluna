@@ -1,30 +1,19 @@
-"use client";
-
-import Article from "@/components/Sections/journal/Article";
-import { CategorySection } from "@/components/Sections/journal/CategorySection";
+import Link from "next/link";
+import Article from "./Article";
 import { Button } from "@/components/ui/button";
 import { BlogPostType } from "@/lib/notion";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 
-export default function Journal() {
-  const [posts, setPosts] = useState<BlogPostType[]>([]);
-
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const response = await fetch("/api/notion");
-        const data: BlogPostType[] = await response.json();
-        setPosts(data);
-      } catch (error) {
-        console.error("Failed to fetch posts:", error);
-      }
-    }
-
-    fetchPosts();
-  }, []);
-
-  const latestPosts = posts
+export function CategorySection({
+  categoryName,
+  categoryTitle,
+  posts,
+}: {
+  categoryName: string;
+  categoryTitle: string;
+  posts: BlogPostType[];
+}) {
+  const filteredPosts = posts
+    .filter((post) => post.category === categoryName)
     .sort(
       (a, b) =>
         new Date(b.createdTime).getTime() - new Date(a.createdTime).getTime()
@@ -36,13 +25,13 @@ export default function Journal() {
       <div className="bg-white flex flex-col mt-6">
         <div className="flex space-x-5 px-12 py-8">
           <h1 className="font-instrument text-lg font-semibold">
-            Latest Articles
+            {categoryTitle}
           </h1>
         </div>
       </div>
       <div className="flex flex-col">
         <div className="flex">
-          {latestPosts.map((post) => (
+          {filteredPosts.map((post) => (
             <div key={post.id} className="flex w-[500px] h-[80vh] mb-8">
               <Article
                 ImageURL={post.cover}
@@ -56,24 +45,13 @@ export default function Journal() {
           ))}
         </div>
         <div className="w-full h-10 flex items-center p-12">
-          <Link href="/journal/latest">
+          <Link href={`/journal/${categoryName}`}>
             <Button variant="link" className="cursor-pointer">
               Explore more
             </Button>
           </Link>
         </div>
       </div>
-
-      <CategorySection
-        categoryName="Skincare tips & Guides"
-        categoryTitle="Skincare tips & Guides"
-        posts={posts}
-      />
-      <CategorySection
-        categoryName="Skin Concerns & Solutions"
-        categoryTitle="Skin Concerns & Solutions"
-        posts={posts}
-      />
     </>
   );
 }
