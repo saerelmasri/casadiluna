@@ -13,7 +13,7 @@ export function CategorySection({
   posts: BlogPostType[];
 }) {
   const filteredPosts = posts
-    .filter((post) => post.category === categoryName)
+    .filter((post) => post.category === categoryTitle)
     .sort(
       (a, b) =>
         new Date(b.createdTime).getTime() - new Date(a.createdTime).getTime()
@@ -30,7 +30,7 @@ export function CategorySection({
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="flex">
+        <div className="flex px-5">
           {filteredPosts.map((post) => (
             <div key={post.id} className="flex w-[500px] h-[80vh] mb-8">
               <Article

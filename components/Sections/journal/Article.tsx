@@ -28,13 +28,13 @@ export default function Article(props: ArticleProps) {
         <Image
           src={props.ImageURL}
           alt={props.Title}
-          layout="fill" // Makes the image fill the parent container
-          objectFit="cover" // Ensures the image will cover the container area
+          layout="fill"
+          objectFit="cover"
         />
       </div>
-      <div className="w-[90%] px-4 py-4 space-y-3">
+      <div className="w-[90%] py-4 space-y-3">
         <div className="flex items-center space-x-6">
-          <div className="flex items-center px-0">
+          <div className="flex items-center">
             <Dot size={24} />
             <p className="font-instrument text-xs">{props.Category}</p>
           </div>

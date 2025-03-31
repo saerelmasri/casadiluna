@@ -1,6 +1,7 @@
 "use client";
 
 import Article from "@/components/Sections/journal/Article";
+import { Skeleton } from "@/components/ui/skeleton";
 import { BlogPostType } from "@/lib/notion";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -18,20 +19,51 @@ export default function Journal() {
   }
 
   const [posts, setPosts] = useState<BlogPostType[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchPosts() {
+      setIsLoading(true);
       try {
         const response = await fetch("/api/notion");
         const data: BlogPostType[] = await response.json();
         setPosts(data);
       } catch (error) {
+        setIsLoading(false);
         console.error("Failed to fetch posts:", error);
+      } finally {
+        setIsLoading(false);
       }
     }
 
     fetchPosts();
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col p-10 space-y-10">
+        {/* Header Skeleton */}
+        <Skeleton className="w-[600px] h-[50px]" />
+
+        {/* Post Skeletons */}
+        <div className="flex space-x-12">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div key={index} className="flex flex-col space-y-3">
+              {/* Post image skeleton */}
+              <Skeleton className="h-[500px] w-[400px] rounded-xl" />
+              <div className="space-y-2">
+                {/* Post title and description skeleton */}
+                <Skeleton className="h-4 w-[400px]" />
+                <Skeleton className="h-4 w-[300px]" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  console.log("isLoading", isLoading);
 
   return (
     <>
