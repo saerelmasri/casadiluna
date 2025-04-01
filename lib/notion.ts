@@ -34,3 +34,16 @@ export async function getDatabase(databaseId: string): Promise<BlogPostType[]> {
 
   return rows;
 }
+
+export async function getPage(pageId: string) {
+  try {
+    const response = await notion.blocks.children.list({
+      block_id: pageId,
+    });
+
+    return response;
+  } catch (error) {
+    console.error("Error fetching Notion page content:", error);
+    throw new Error("Failed to fetch Notion page content");
+  }
+}

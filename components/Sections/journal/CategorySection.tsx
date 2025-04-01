@@ -34,6 +34,7 @@ export function CategorySection({
           {filteredPosts.map((post) => (
             <div key={post.id} className="flex w-[500px] h-[80vh] mb-8">
               <Article
+                ID={post.id}
                 ImageURL={post.cover}
                 Category={post.category}
                 Title={post.title}
@@ -45,7 +46,7 @@ export function CategorySection({
           ))}
         </div>
         <div className="w-full h-10 flex items-center p-12">
-          <Link href={`/journal/${categoryName}`}>
+          <Link href={`/journal/category/${categoryName}`}>
             <Button variant="link" className="cursor-pointer">
               Explore more
             </Button>

@@ -63,8 +63,6 @@ export default function Journal() {
     );
   }
 
-  console.log("isLoading", isLoading);
-
   return (
     <>
       <div className=" bg-white flex flex-col mt-6">
@@ -88,6 +86,7 @@ export default function Journal() {
             .map((post) => (
               <div key={post.id} className="flex w-[600px] h-[80vh] mb-8">
                 <Article
+                  ID={post.id}
                   ImageURL={post.cover}
                   Category={post.category}
                   Title={post.title}

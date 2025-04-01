@@ -6,6 +6,7 @@ import Link from "next/link";
 import React from "react";
 
 type ArticleProps = {
+  ID: string;
   ImageURL: string;
   Category: string;
   Title: string;
@@ -22,8 +23,21 @@ export default function Article(props: ArticleProps) {
     day: "numeric",
   });
 
+  const fetchContent = async () => {
+    try {
+      const response = await fetch(`/api/notion/${props.ID}`);
+      if (!response) {
+        return new Error("Failed fetching content");
+      }
+      const dataContent = await response.json();
+      console.log("Content:", dataContent);
+    } catch (error) {
+      console.error("Error fetching page:", error);
+    }
+  };
+
   return (
-    <Link href="" className="flex flex-col items-center">
+    <Link href="" onClick={fetchContent} className="flex flex-col items-center">
       <div className="w-[90%] h-[500px] relative">
         <Image
           src={props.ImageURL}
