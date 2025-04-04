@@ -3,10 +3,11 @@ import { getPage } from "@/lib/notion";
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
-    const pageId = params.id;
+    const { params } = context;
+    const pageId = params?.id;
 
     if (!pageId) {
       return NextResponse.json(

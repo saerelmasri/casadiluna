@@ -30,12 +30,15 @@ export default function Journal() {
     fetchPosts();
   }, []);
 
-  const latestPosts = posts
-    .sort(
-      (a, b) =>
-        new Date(b.createdTime).getTime() - new Date(a.createdTime).getTime()
-    )
-    .slice(0, 4);
+  let latestPosts: BlogPostType[] = [];
+  if (posts && posts.length > 0) {
+    latestPosts = posts
+      .sort(
+        (a, b) =>
+          new Date(b.createdTime).getTime() - new Date(a.createdTime).getTime()
+      )
+      .slice(0, 4);
+  }
 
   if (isLoading) {
     return (
