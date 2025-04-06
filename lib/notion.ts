@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Client } from "@notionhq/client";
 
@@ -37,13 +38,29 @@ export async function getDatabase(databaseId: string): Promise<BlogPostType[]> {
 
 export async function getPage(pageId: string) {
   try {
-    const response = await notion.blocks.children.list({
-      block_id: pageId,
-    });
-
-    return response;
+    const blocks = await getBlockChildren(pageId);
+    return { results: blocks };
   } catch (error) {
     console.error("Error fetching Notion page content:", error);
     throw new Error("Failed to fetch Notion page content");
   }
+}
+
+async function getBlockChildren(blockId: string): Promise<any> {
+  const response = await notion.blocks.children.list({
+    block_id: blockId,
+  });
+
+  const blocksWithChildren = await Promise.all(
+    response.results.map(async (block) => {
+      // @ts-ignore
+      if (block.has_children) {
+        const children = await getBlockChildren(block.id);
+        return { ...block, children };
+      }
+      return block;
+    })
+  );
+
+  return blocksWithChildren;
 }
