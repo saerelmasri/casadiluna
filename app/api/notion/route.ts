@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { BlogPostType, getDatabase } from "@/lib/notion"; // Ensure this path is correct
+import { BlogPostType, getDatabase } from "@/lib/notion";
 
 export async function GET() {
   try {

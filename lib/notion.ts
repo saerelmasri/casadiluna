@@ -36,6 +36,31 @@ export async function getDatabase(databaseId: string): Promise<BlogPostType[]> {
   return rows;
 }
 
+export async function getRowInfoById(rowId: string): Promise<{
+  id: string;
+  title: any;
+  category: any;
+  readingTime: any;
+  cover: any;
+  date: any;
+} | null> {
+  const page = await notion.pages.retrieve({
+    page_id: rowId,
+  });
+
+  if (!page) return null;
+
+  const properties = (page as any).properties;
+  return {
+    id: page.id,
+    title: properties.Article?.title?.[0]?.text?.content || "",
+    category: properties.Category?.rich_text?.[0]?.text?.content || "",
+    readingTime: properties.ReadingTime?.number || 0,
+    cover: properties.Cover?.files?.[0]?.file?.url || "",
+    date: properties.Date?.date?.start || "",
+  };
+}
+
 export async function getPage(pageId: string) {
   try {
     const blocks = await getBlockChildren(pageId);

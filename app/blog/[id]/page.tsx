@@ -10,6 +10,19 @@ import { useEffect, useState } from "react";
 export default function BlogPost() {
   const { id } = useParams();
   const [blocks, setBlocks] = useState<any[]>([]);
+  const [pagePresentation, setPagePresentation] = useState<{
+    Article: string;
+    Category: string;
+    Date: string;
+    ReadingTime: number;
+    Cover: string;
+  }>({
+    Article: "",
+    Category: "",
+    Date: "",
+    ReadingTime: 0,
+    Cover: "",
+  });
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -25,8 +38,44 @@ export default function BlogPost() {
       }
     };
 
+    const fetchRowContent = async () => {
+      try {
+        const response = await fetch(`/api/notion/post/${id}`);
+        if (!response.ok) throw new Error("Failed fetching row content");
+
+        const dataRowContent: {
+          id: string;
+          title: string;
+          category: string;
+          readingTime: number;
+          cover: string;
+          date: string;
+        } = await response.json();
+
+        const fetchedRowContent = dataRowContent || [];
+        setPagePresentation({
+          Article: fetchedRowContent.title,
+          Category: fetchedRowContent.category,
+          Cover: fetchedRowContent.cover,
+          ReadingTime: fetchedRowContent.readingTime,
+          Date: fetchedRowContent.date,
+        });
+      } catch (error) {
+        console.error("Error fetching page:", error);
+      }
+    };
+
     fetchContent();
+    fetchRowContent();
   }, [id]);
+
+  const date = new Date(pagePresentation.Date);
+  const dateFormat = date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
 
   const renderRichText = (richText: any[]) => {
     return richText.map((textObj, i) => {
@@ -195,24 +244,28 @@ export default function BlogPost() {
   return (
     <>
       {/* Hero Section */}
-      <div className="h-[90vh] flex flex-col md:flex-row">
+      <div className="md:h-[90vh] flex flex-col md:flex-row">
         <div
-          className="w-full md:w-[50%] relative bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/images/hero2.jpg')",
-          }}
-        />
+          className="w-full md:w-[50%] h-[500px] md:h-full relative bg-cover bg-center"
+        >
+          <Image
+                src={pagePresentation.Cover}
+                alt={"Notion image"}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+        </div>
         <div className="w-full md:w-[50%] bg-[#321e1e] flex flex-col justify-center p-10">
-          <div className="flex items-center space-x-5 text-white text-sm font-light mb-4">
+          <div className="flex items-center space-x-5 text-white text-xs md:text-sm font-light mb-4">
             <Dot size={52} />
-            <span>Treatment</span>
+            <span>{pagePresentation.Category}</span>
             <span>|</span>
-            <span>Jan 23, 2025</span>
+            <span>{dateFormat}</span>
             <span>|</span>
-            <span>5 min read</span>
+            <span>{pagePresentation.ReadingTime} min read</span>
           </div>
-          <h1 className="font-bricolage text-white text-5xl md:text-7xl lowercase leading-tight">
-            Day care.
+          <h1 className="font-bricolage text-white text-2xl md:text-4xl lowercase leading-tight">
+            {pagePresentation.Article}
           </h1>
         </div>
       </div>
