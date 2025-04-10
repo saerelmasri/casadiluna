@@ -20,7 +20,6 @@ export default function Journal() {
         const data: BlogPostType[] = await response.json();
         setPosts(data);
       } catch (error) {
-        setIsLoading(false);
         console.error("Failed to fetch posts:", error);
       } finally {
         setIsLoading(false);
@@ -30,53 +29,45 @@ export default function Journal() {
     fetchPosts();
   }, []);
 
-  let latestPosts: BlogPostType[] = [];
-  if (posts && posts.length > 0) {
-    latestPosts = posts
-      .sort(
-        (a, b) =>
-          new Date(b.createdTime).getTime() - new Date(a.createdTime).getTime()
-      )
-      .slice(0, 4);
-  }
-
-  if (isLoading) {
-    return (
-      <div className="flex flex-col p-10 space-y-10">
-        <Skeleton className="w-[600px] h-[50px]" />
-
-        {/* Post Skeletons */}
-        <div className="flex space-x-12">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <div key={index} className="flex flex-col space-y-3">
-              {/* Post image skeleton */}
-              <Skeleton className="h-[500px] w-[400px] rounded-xl" />
-              <div className="space-y-2">
-                {/* Post title and description skeleton */}
-                <Skeleton className="h-4 w-[400px]" />
-                <Skeleton className="h-4 w-[300px]" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
+  const latestPosts = posts
+    .sort(
+      (a, b) =>
+        new Date(b.createdTime).getTime() -
+        new Date(a.createdTime).getTime()
+    )
+    .slice(0, 4);
 
   return (
-    <>
-      <div className="bg-white flex flex-col mt-6">
-        <div className="flex space-x-5 px-12 py-8">
-          <h1 className="font-instrument text-lg font-semibold">
-            Latest Articles
-          </h1>
-        </div>
+    <div className="bg-white w-full flex flex-col space-y-12 mt-6 px-6 md:px-10">
+      {/* Latest Articles Header */}
+      <div className=" flex justify-between items-center pt-8 pl-8 pr-8">
+        <h1 className="font-instrument text-xl md:text-2xl font-semibold text-[#321e1e]">
+          Latest Articles
+        </h1>
+        {!isLoading && posts.length > 0 && (
+          <Link href="/journal/category/latest">
+            <Button variant="link" className="text-sm">
+              Explore more
+            </Button>
+          </Link>
+        )}
       </div>
-      <div className="flex flex-col">
-        <div className="flex px-5">
-          {latestPosts.map((post) => (
-            <div key={post.id} className="flex w-[500px] h-[80vh] mb-8">
+
+      {/* Articles Grid or Skeleton */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {isLoading
+          ? Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="flex flex-col space-y-3">
+                <Skeleton className="h-[300px] w-full rounded-xl" />
+                <div className="space-y-2">
+                  <Skeleton className="h-4 w-3/4" />
+                  <Skeleton className="h-4 w-1/2" />
+                </div>
+              </div>
+            ))
+          : latestPosts.map((post) => (
               <Article
+                key={post.id}
                 ID={post.id}
                 ImageURL={post.cover}
                 Category={post.category}
@@ -85,18 +76,10 @@ export default function Journal() {
                 ReadingTime={post.readingTime}
                 CreatedTime={post.date}
               />
-            </div>
-          ))}
-        </div>
-        <div className="w-full h-10 flex items-center p-12">
-          <Link href="/journal/category/latest">
-            <Button variant="link" className="cursor-pointer">
-              Explore more
-            </Button>
-          </Link>
-        </div>
+            ))}
       </div>
 
+      {/* Category Sections */}
       <CategorySection
         categoryName="skincare-tips-guides"
         categoryTitle="Skincare tips & Guides"
@@ -107,6 +90,7 @@ export default function Journal() {
         categoryTitle="Skin Concerns & Solutions"
         posts={posts}
       />
-    </>
+      <div className="h-[10px]"/>
+    </div>
   );
 }

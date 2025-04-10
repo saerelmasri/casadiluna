@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable @typescript-eslint/no-explicit-any
 "use client";
 
+import Article from "@/components/Sections/journal/Article";
+import { BlogPostType } from "@/lib/notion";
 import { Dot } from "lucide-react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
@@ -9,6 +10,17 @@ import { useEffect, useState } from "react";
 
 export default function BlogPost() {
   const { id } = useParams();
+  const [loading, setLoading] = useState({
+    content: true,
+    rowContent: true,
+    otherPosts: true,
+  });
+  const [error, setError] = useState({
+    content: null,
+    rowContent: null,
+    otherPosts: null,
+  });
+  const [otherPosts, setOtherPosts] = useState<BlogPostType[]>([]);
   const [blocks, setBlocks] = useState<any[]>([]);
   const [pagePresentation, setPagePresentation] = useState<{
     Article: string;
@@ -25,49 +37,79 @@ export default function BlogPost() {
   });
 
   useEffect(() => {
-    const fetchContent = async () => {
+    const fetchAllData = async () => {
       try {
-        const response = await fetch(`/api/notion/${id}`);
-        if (!response.ok) throw new Error("Failed fetching content");
+        setLoading({ content: true, rowContent: true, otherPosts: true });
+        setError({ content: null, rowContent: null, otherPosts: null });
 
-        const dataContent = await response.json();
-        const fetchedBlocks = dataContent.results || dataContent || [];
-        setBlocks(fetchedBlocks);
-      } catch (error) {
-        console.error("Error fetching page:", error);
-      }
-    };
+        const [contentRes, rowContentRes, allPostsRes] = await Promise.all([
+          fetch(`/api/notion/${id}`),
+          fetch(`/api/notion/post/${id}`),
+          fetch("/api/notion"),
+        ]);
 
-    const fetchRowContent = async () => {
-      try {
-        const response = await fetch(`/api/notion/post/${id}`);
-        if (!response.ok) throw new Error("Failed fetching row content");
+        if (!contentRes.ok || !rowContentRes.ok || !allPostsRes.ok) {
+          return new Error("One or more requests failed");
+        }
 
-        const dataRowContent: {
-          id: string;
-          title: string;
-          category: string;
-          readingTime: number;
-          cover: string;
-          date: string;
-        } = await response.json();
+        const contentData = await contentRes.json();
+        const rowContentData = await rowContentRes.json();
+        const allPostsData: BlogPostType[] = await allPostsRes.json();
 
-        const fetchedRowContent = dataRowContent || [];
+        const blocks = contentData?.results || contentData || [];
+        setBlocks(blocks);
+
         setPagePresentation({
-          Article: fetchedRowContent.title,
-          Category: fetchedRowContent.category,
-          Cover: fetchedRowContent.cover,
-          ReadingTime: fetchedRowContent.readingTime,
-          Date: fetchedRowContent.date,
+          Article: rowContentData.title,
+          Category: rowContentData.category,
+          Cover: rowContentData.cover,
+          ReadingTime: rowContentData.readingTime,
+          Date: rowContentData.date,
         });
-      } catch (error) {
-        console.error("Error fetching page:", error);
+
+        const filteredPosts = allPostsData
+          .filter(
+            (post) =>
+              post.id !== id && post.category === pagePresentation.Category
+          )
+          .sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+          )
+          .slice(0, 3);
+
+        setOtherPosts(filteredPosts);
+      } catch (err: any) {
+        console.error("Failed fetching data:", err);
+        setError({
+          content: err.message || "Error",
+          rowContent: err.message || "Error",
+          otherPosts: err.message || "Error",
+        });
+      } finally {
+        setLoading({ content: false, rowContent: false, otherPosts: false });
       }
     };
 
-    fetchContent();
-    fetchRowContent();
-  }, [id]);
+    fetchAllData();
+  }, [id, pagePresentation.Category]);
+
+  console.log("OtherPosts:", otherPosts);
+
+  const LoadingSkeleton = () => (
+    <div className="space-y-4 animate-pulse">
+      <div className="h-6 bg-gray-300 rounded w-1/2" />
+      <div className="h-4 bg-gray-300 rounded w-full" />
+      <div className="h-4 bg-gray-300 rounded w-5/6" />
+      <div className="h-4 bg-gray-300 rounded w-2/3" />
+    </div>
+  );
+
+  const ErrorMessage = ({ message }: { message: string }) => (
+    <div className="bg-red-100 text-red-700 border border-red-300 p-4 rounded-md">
+      <p className="font-medium">Oops! Something went wrong:</p>
+      <p className="text-sm">{message}</p>
+    </div>
+  );
 
   const date = new Date(pagePresentation.Date);
   const dateFormat = date.toLocaleDateString("en-US", {
@@ -75,7 +117,6 @@ export default function BlogPost() {
     month: "long",
     day: "numeric",
   });
-
 
   const renderRichText = (richText: any[]) => {
     return richText.map((textObj, i) => {
@@ -243,40 +284,84 @@ export default function BlogPost() {
 
   return (
     <>
-      {/* Hero Section */}
-      <div className="md:h-[90vh] flex flex-col md:flex-row">
-        <div
-          className="w-full md:w-[50%] h-[500px] md:h-full relative bg-cover bg-center"
-        >
-          <Image
+      {loading.rowContent ? (
+        <div className="h-[500px] md:h-[90vh] w-full flex items-center justify-center bg-[#321e1e] text-white">
+          <p>Loading article info...</p>
+        </div>
+      ) : error.rowContent ? (
+        <div className="h-[500px] md:h-[90vh] w-full flex items-center justify-center bg-red-100 text-red-700">
+          <p>Error loading article: {error.rowContent}</p>
+        </div>
+      ) : (
+        <>
+          <div className="md:h-[90vh] flex flex-col md:flex-row">
+            <div className="w-full md:w-[50%] h-[500px] md:h-full relative bg-cover bg-center">
+              <Image
                 src={pagePresentation.Cover}
                 alt={"Notion image"}
                 fill
                 style={{ objectFit: "cover" }}
               />
-        </div>
-        <div className="w-full md:w-[50%] bg-[#321e1e] flex flex-col justify-center p-10">
-          <div className="flex items-center space-x-5 text-white text-xs md:text-sm font-light mb-4">
-            <Dot size={52} />
-            <span>{pagePresentation.Category}</span>
-            <span>|</span>
-            <span>{dateFormat}</span>
-            <span>|</span>
-            <span>{pagePresentation.ReadingTime} min read</span>
+            </div>
+            <div className="w-full md:w-[50%] bg-[#321e1e] flex flex-col justify-center p-10">
+              <div className="flex items-center space-x-5 text-white text-xs md:text-sm font-light mb-4">
+                <Dot size={52} />
+                <span>{pagePresentation.Category}</span>
+                <span>|</span>
+                <span>{dateFormat}</span>
+                <span>|</span>
+                <span>{pagePresentation.ReadingTime} min read</span>
+              </div>
+              <h1 className="font-bricolage text-white text-2xl md:text-4xl lowercase leading-tight">
+                {pagePresentation.Article}
+              </h1>
+            </div>
           </div>
-          <h1 className="font-bricolage text-white text-2xl md:text-4xl lowercase leading-tight">
-            {pagePresentation.Article}
-          </h1>
-        </div>
-      </div>
+        </>
+      )}
 
       {/* Content Section */}
       <div className="bg-[#faf4f0] w-full px-6 md:px-10 py-12 flex justify-center">
         <div className="max-w-6xl w-full">
-          {blocks.length === 0 ? (
-            <p className="text-gray-500">Loading or no content available...</p>
+          {loading.content ? (
+            <LoadingSkeleton />
+          ) : error.content ? (
+            <ErrorMessage message={error.content} />
+          ) : blocks.length === 0 ? (
+            <p className="text-gray-500">No content available.</p>
           ) : (
             renderBlocks()
+          )}
+        </div>
+      </div>
+
+      <div className="bg-[#faf4f0] w-full py-10 px-6 md:px-10 flex flex-col items-center">
+        <div className="max-w-6xl w-full">
+          <h2 className="font-instrument text-lg md:text-xl text-[#321e1e] mb-6 lowercase">
+            Check more topics
+          </h2>
+
+          {loading.otherPosts ? (
+            <LoadingSkeleton />
+          ) : error.otherPosts ? (
+            <ErrorMessage message={error.otherPosts} />
+          ) : otherPosts.length === 0 ? (
+            <p className="text-gray-600 text-sm">No related posts found.</p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {otherPosts.map((post) => (
+                <Article
+                  key={post.id}
+                  ID={post.id}
+                  ImageURL={post.cover}
+                  Category={post.category}
+                  Title={post.title}
+                  Description={post.description}
+                  ReadingTime={post.readingTime}
+                  CreatedTime={post.date}
+                />
+              ))}
+            </div>
           )}
         </div>
       </div>

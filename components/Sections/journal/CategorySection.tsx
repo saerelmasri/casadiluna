@@ -16,43 +16,46 @@ export function CategorySection({
     .filter((post) => post.category === categoryTitle)
     .sort(
       (a, b) =>
-        new Date(b.createdTime).getTime() - new Date(a.createdTime).getTime()
+        new Date(b.createdTime).getTime() -
+        new Date(a.createdTime).getTime()
     )
     .slice(0, 4);
 
   return (
-    <>
-      <div className="bg-white flex flex-col mt-6">
-        <div className="flex space-x-5 px-12 py-8">
-          <h1 className="font-instrument text-lg font-semibold">
-            {categoryTitle}
-          </h1>
-        </div>
-      </div>
-      <div className="flex flex-col">
-        <div className="flex px-5">
-          {filteredPosts.map((post) => (
-            <div key={post.id} className="flex w-[500px] h-[80vh] mb-8">
-              <Article
-                ID={post.id}
-                ImageURL={post.cover}
-                Category={post.category}
-                Title={post.title}
-                Description={post.description}
-                ReadingTime={post.readingTime}
-                CreatedTime={post.date}
-              />
-            </div>
-          ))}
-        </div>
-        <div className="w-full h-10 flex items-center p-12">
+    <div className="flex flex-col space-y-10 mt-16 ">
+      {/* Section Header */}
+      <div className="flex justify-between items-center pt-8 pl-8 pr-8">
+        <h2 className="font-instrument text-xl md:text-2xl font-semibold text-[#321e1e]">
+          {categoryTitle}
+        </h2>
+        {filteredPosts.length > 0 && (
           <Link href={`/journal/category/${categoryName}`}>
-            <Button variant="link" className="cursor-pointer">
+            <Button variant="link" className="text-sm">
               Explore more
             </Button>
           </Link>
-        </div>
+        )}
       </div>
-    </>
+
+      {/* Articles Grid */}
+      {filteredPosts.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {filteredPosts.map((post) => (
+            <Article
+              key={post.id}
+              ID={post.id}
+              ImageURL={post.cover}
+              Category={post.category}
+              Title={post.title}
+              Description={post.description}
+              ReadingTime={post.readingTime}
+              CreatedTime={post.date}
+            />
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-500 text-sm">No articles found in this category.</p>
+      )}
+    </div>
   );
 }

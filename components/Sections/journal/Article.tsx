@@ -23,16 +23,18 @@ export default function Article(props: ArticleProps) {
     day: "numeric",
   });
 
-  
-
   return (
-    <Link href={`/blog/${props.ID}`} className="flex flex-col items-center">
-      <div className="w-[90%] h-[500px] relative">
+    <Link
+      href={`/blog/${props.ID}`}
+      className="flex flex-col items-center"
+    >
+      <div className="w-[90%] aspect-video relative overflow-hidden">
         <Image
           src={props.ImageURL}
           alt={props.Title}
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       <div className="w-[90%] py-4 space-y-3">
