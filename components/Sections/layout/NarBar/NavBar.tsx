@@ -17,7 +17,7 @@ export default function Navbar() {
   const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
 
   console.log("Router:", router);
-  const isHome = router !== "/";
+  const isCollection = router.startsWith("/collections");
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -74,16 +74,26 @@ export default function Navbar() {
         animate={{
           y: navbarVisible ? 0 : -80,
           opacity: navbarVisible ? 1 : 0,
-          backgroundColor: scrolling || activeMenu || isMobileMenuOpen ? "white" : "transparent",
+          backgroundColor:
+            scrolling || activeMenu || isMobileMenuOpen
+              ? "white"
+              : "transparent",
         }}
-        transition={{ type: "spring", stiffness: 100, damping: 25, duration: 0.3 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 25,
+          duration: 0.3,
+        }}
       >
         <div className="mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <Link
               href="/"
               className={`text-3xl font-instrument transition-colors ${
-                scrolling || activeMenu || isMobileMenuOpen || isHome ? "text-black" : "text-white"
+                scrolling || activeMenu || isMobileMenuOpen || isCollection
+                  ? "text-black"
+                  : "text-white"
               }`}
             >
               Essenza
@@ -99,9 +109,16 @@ export default function Navbar() {
                   onMouseLeave={handleMouseLeave}
                 >
                   <Link
-                    href={menuKey === "shop" ? "/collections/all" : `/${menuKey.toLowerCase()}`}
+                    href={
+                      menuKey === "shop"
+                        ? "/collections/all"
+                        : `/${menuKey.toLowerCase()}`
+                    }
                     className={`transition-colors text-sm ${
-                      scrolling || activeMenu || isMobileMenuOpen || isHome
+                      scrolling ||
+                      activeMenu ||
+                      isMobileMenuOpen ||
+                      isCollection
                         ? "text-black hover:text-gray-600"
                         : "text-white hover:text-gray-200"
                     }`}
@@ -114,7 +131,9 @@ export default function Navbar() {
               <Link
                 href="/journal"
                 className={`transition-colors text-sm ${
-                  scrolling || activeMenu || isMobileMenuOpen || isHome ? "text-black hover:text-gray-600" : "text-white hover:text-gray-200"
+                  scrolling || activeMenu || isMobileMenuOpen || isCollection
+                    ? "text-black hover:text-gray-600"
+                    : "text-white hover:text-gray-200"
                 }`}
               >
                 journal
@@ -123,14 +142,20 @@ export default function Navbar() {
 
             <div className="flex items-center space-x-4">
               <button
-                className={`md:hidden p-2 rounded ${scrolling || activeMenu || isMobileMenuOpen || isHome ? "text-black" : "text-white"}`}
+                className={`md:hidden p-2 rounded ${
+                  scrolling || activeMenu || isMobileMenuOpen || isCollection
+                    ? "text-black"
+                    : "text-white"
+                }`}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               >
                 <div className="relative w-6 h-5 flex items-center justify-center">
                   <div
                     className={`absolute w-6 h-[2px] bg-current transition-all duration-300 ${
-                      isMobileMenuOpen ? "rotate-45 translate-y-0" : "translate-y-[-4px]"
+                      isMobileMenuOpen
+                        ? "rotate-45 translate-y-0"
+                        : "translate-y-[-4px]"
                     }`}
                   />
                   <div
@@ -140,7 +165,9 @@ export default function Navbar() {
                   />
                   <div
                     className={`absolute w-6 h-[2px] bg-current transition-all duration-300 ${
-                      isMobileMenuOpen ? "-rotate-45 translate-y-0" : "translate-y-[4px]"
+                      isMobileMenuOpen
+                        ? "-rotate-45 translate-y-0"
+                        : "translate-y-[4px]"
                     }`}
                   />
                 </div>
@@ -161,29 +188,44 @@ export default function Navbar() {
           >
             <div className="py-8 px-6 h-full flex flex-col">
               <nav className="flex flex-col space-y-6">
-                {Object.keys(NavBarContent).concat("journal").map((menuKey) => (
-                  <motion.div
-                    key={menuKey}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.1 * Object.keys(NavBarContent).indexOf(menuKey), ease: "easeOut" }}
-                  >
-                    <Link
-                      href={menuKey === "shop" ? "/collections/all" : `/collections/${menuKey.toLowerCase()}`}
-                      className="text-gray-600 hover:text-black text-4xl font-bricolage"
-                      onClick={handleMobileLinkClick}
+                {Object.keys(NavBarContent)
+                  .concat("journal")
+                  .map((menuKey) => (
+                    <motion.div
+                      key={menuKey}
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{
+                        duration: 0.3,
+                        delay:
+                          0.1 * Object.keys(NavBarContent).indexOf(menuKey),
+                        ease: "easeOut",
+                      }}
                     >
-                      {menuKey}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={
+                          menuKey === "shop"
+                            ? "/collections/all"
+                            : `/collections/${menuKey.toLowerCase()}`
+                        }
+                        className="text-gray-600 hover:text-black text-4xl font-bricolage"
+                        onClick={handleMobileLinkClick}
+                      >
+                        {menuKey}
+                      </Link>
+                    </motion.div>
+                  ))}
               </nav>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <ActiveMenuEffect activeMenu={activeMenu} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />
+      <ActiveMenuEffect
+        activeMenu={activeMenu}
+        handleMouseEnter={handleMouseEnter}
+        handleMouseLeave={handleMouseLeave}
+      />
     </>
   );
 }
