@@ -168,7 +168,7 @@ export default function Shop() {
           onMouseEnter={() => setHovering(true)}
           onMouseLeave={() => setHovering(false)}
         >
-          {["face", "body", "sets", "beauty tools"].map((category, index) => (
+          {["cleansers", "moisturizers", "serums", "exfoliators", "sun"].map((category, index) => (
             <div
               key={index}
               className="w-full flex flex-col items-center cursor-none"

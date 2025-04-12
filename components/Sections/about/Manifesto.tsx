@@ -10,15 +10,16 @@ export default function ManifestoSection() {
             <p className="lowercase font-instrument text-xs">Manifesto</p>
           </div>
           <h1 className="font-bricolage text-4xl md:text-5xl lg:text-6xl lowercase text-wrap text-[#321e1e]">
-            Every skin deserves exceptional care.
+            Every skin tells a story — and every story deserves care that feels
+            exceptional.
           </h1>
         </div>
         <div className="h-auto lg:h-[50%] w-full bg-[#f1e4d3]">
           <div className="flex flex-col absolute items-start justify-end bottom-0 space-y-4 px-8 py-6 lg:px-7 lg:py-5">
             <p className="font-instrument text-md ">
-              Our beauty products, certified organic and natural by Ecocert
-              according to Cosmos standards, are designed to deliver visible
-              results while preserving our planet.
+              We curate elevated skincare made with mindful ingredients,
+              luxurious textures, and proven results — all with a respect for
+              the earth that nurtures us.
             </p>
           </div>
         </div>

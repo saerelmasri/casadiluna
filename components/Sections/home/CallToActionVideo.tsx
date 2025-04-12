@@ -25,18 +25,20 @@ export default function CallToActionVideo() {
             </p>
           </div>
           <h1 className="font-bricolage text-4xl md:text-5xl lg:text-6xl lowercase text-wrap text-[#321e1e]">
-            Routines for all skin types.
+            Routines for Every Skin Type
           </h1>
         </div>
         <div className="h-auto lg:h-[50%] w-full bg-[#f1e4d3]">
           <div className="flex flex-col absolute items-start bottom-20 space-y-4 px-8 py-6 lg:px-7 lg:py-5">
             <p className="font-instrument text-md ">
-              At Nüssa, every skin deserves exceptional care. Our certified
-              organic and natural formulas combine rare botanical plants and
-              powerful active ingredients, carefully selected to nourish,
-              protect and enhance every skin type.
+              Every skin deserves exceptional care — rooted in nature and
+              elevated by science. Our curated selection brings together
+              certified organic formulas and rare botanicals, enriched with
+              powerful actives to nourish, protect, and enhance all skin types.
+              From sensitive to resilient, oily to dry — discover rituals that
+              honor your skin’s unique rhythm.
             </p>
-            <CustomButton buttonText="shop now" href="" variant="default" />
+            <CustomButton buttonText="shop now" href="/collections/all" variant="default" />
           </div>
         </div>
       </div>

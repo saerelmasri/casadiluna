@@ -2,19 +2,19 @@ import SectionCard from "../../section-components/home/SectionCard";
 
 const cardContent = [
   {
-    title: "face",
-    buttonTitle: "check face",
+    title: "cleansers",
+    buttonTitle: "check cleansers",
+    image: "/images/cleanser.jpg",
+  },
+  {
+    title: "moisturizers",
+    buttonTitle: "check moisturizers",
+    image: "/images/moisturizers.jpg",
+  },
+  {
+    title: "serums",
+    buttonTitle: "check serums",
     image: "/images/face.jpg",
-  },
-  {
-    title: "beauty tools",
-    buttonTitle: "check beauty tools",
-    image: "/images/tools.jpg",
-  },
-  {
-    title: "body",
-    buttonTitle: "check body",
-    image: "/images/body.jpg",
   },
 ];
 

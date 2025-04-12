@@ -10,47 +10,40 @@ const shopContent = {
     description:
       "Designed with respect for your skin and the planet, the entire Nüssa skincare range is made in France and certified organic and natural by Ecocert.",
   },
-  face: {
-    title: "face",
+  cleansers: {
+    title: "Cleansers",
     description:
-      "Our daytime range adapts to all skin types, including those of pregnant and breastfeeding women. Enriched with hyaluronic acid, ceramides and vitamin C, our ultra-clean formulas stimulate, hydrate and regenerate the skin.",
+      "For all skin types — removing impurities while maintaining your skin's balance.",
   },
-  body: {
-    title: "body",
+  moisturizers: {
+    title: "Moisturizers & Hydration",
     description:
-      "Formulated with patented, 100% natural ingredients, our products are suitable for all skin types, including pregnant and breastfeeding women. Treat your skin to optimal nutrition, cell regeneration and tissue unclogging.",
+      "Nourish and lock in moisture with creams, gels, and serums that promote skin's hydration and elasticity.",
   },
-  sets: {
-    title: "sets",
+  serums: {
+    title: "Serums & Treatments",
     description:
-      "To optimize the effects on the skin, we have formulated our treatments in sets so that the ingredients act in synergy and amplify their benefits.",
+      "Target specific skin concerns like aging, pigmentation, or blemishes with potent, high-performance formulas.",
   },
-  "beauty-tools": {
-    title: "body tools",
+  exfoliators: {
+    title: "Exfoliators & Masks",
     description:
-      "Discover our innovative, eco-friendly range of beauty tools made from precious woods sourced from FSC-certified, ecologically managed forests. These tools are designed to deliver exceptional benefits to the skin, promoting cell regeneration, tissue firming and cellulite reduction.",
+      "Revitalize your complexion with gentle exfoliants or rejuvenating masks for smoother, brighter skin.",
   },
-  "anti-aging-first-wrinkles": {
-    title: "Anti-aging & first wrinkles",
+  "sun-protection": {
+    title: "Sun Protection",
     description:
-      "Fight the first wrinkles and signs of aging with our organic skin care products. Use our eye contour gel to reduce dark circles, puffiness and fine lines, our make-up remover oil rich in Marula oil for optimal hydration, our plumping spray serum with hyaluronic acid for firmer skin, and our high-performance flower oil duo to restore tone.",
-  },
-  "firmness-cellulite": {
-    title: "Firmness & cellulite",
-    description:
-      "Tone your skin and reduce cellulite with our Nüssa body selection. Discover our beauty accessories for everyday use, as well as our specific disinfiltrating coffee treatment, for firm, smooth skin all year round.",
-  },
-  "acne-blemishes": {
-    title: "Acne & blemishes",
-    description:
-      "Fight acne and blemishes with our skincare products for problem-prone skin. Organic solutions made in France, ideal for sensitive, blemish-prone skin.",
-  },
-  "dehydration-dullness": {
-    title: "Dehydration & dullness",
-    description:
-      "Restore hydration and radiance to your skin with our range of specific care products, created in synergy to multiply their effects and all made in France with natural and organic ingredients. Suitable for all skin types, including sensitive skin and pregnant women.",
+      "High-quality sunscreens designed to protect against harmful UV rays, ensuring your skin remains radiant and youthful.",
   },
 };
+
+const displayedCategories = [
+  "cleansers",
+  "moisturizers",
+  "serums",
+  "exfoliators",
+  "sun",
+] as const;
 
 export default function CategoryShop() {
   const pathname = usePathname();
@@ -69,19 +62,9 @@ export default function CategoryShop() {
         </p>
       </div>
       <div className="flex space-x-5 md:space-x-10 mt-4">
-        {![
-          "anti-aging-first-wrinkles",
-          "firmness-cellulite",
-          "acne-blemishes",
-          "dehydration-dullness",
-        ].includes(pathKey) ? (
-          <>
-            <Category category="face" currentPath={pathKey} />
-            <Category category="body" currentPath={pathKey} />
-            <Category category="sets" currentPath={pathKey} />
-            <Category category="beauty-tools" currentPath={pathKey} />
-          </>
-        ) : null}
+        {displayedCategories.map((category) => (
+          <Category key={category} category={category} currentPath={pathKey} />
+        ))}
       </div>
     </div>
   );

@@ -1,25 +1,19 @@
 "use client";
 
+import { BlogPostType } from "@/lib/notion";
 import { Dot } from "lucide-react";
 import Image from "next/image";
 
-export type NewsCardProp = {
-  imageURL: string;
-  alt: string;
-  category: string;
-  articleTitle: string;
-  articleDescription: string;
-};
 
-export default function NewsCard(props: NewsCardProp) {
-  const { imageURL, alt, category, articleTitle, articleDescription } = props;
+export default function NewsCard(props: BlogPostType) {
+  const { title, category, description, cover } = props;
 
   return (
     <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 h-auto flex flex-col">
       <div className="relative w-full h-64 md:h-72 lg:h-[500px] overflow-hidden">
         <Image
-          src={imageURL || "/images/girl.png"}
-          alt={alt || "Skin care"}
+          src={cover || "/images/girl.png"}
+          alt={title || "Skin care"}
           fill
           className="object-cover transition-transform duration-300 transform hover:scale-105"
         />
@@ -33,10 +27,10 @@ export default function NewsCard(props: NewsCardProp) {
         </div>
         <div className="mt-2 space-y-2">
           <h1 className="font-bricolage text-2xl md:text-3xl lowercase">
-            {articleTitle}
+            {title}
           </h1>
           <p className="font-instrument text-xs md:text-sm">
-            {articleDescription}
+            {description}
           </p>
         </div>
       </div>

@@ -1,5 +1,3 @@
-import CustomButton from "@/components/common/CustomButton";
-
 export default function IngredientsSection() {
   return (
     <section
@@ -13,18 +11,13 @@ export default function IngredientsSection() {
             Precious ingredients sourcing.
           </h2>
           <p className="font-instrument">
-            Ingredient sourcing is a crucial step, reflecting our commitment to
-            quality and ethics. We carefully select precious, natural active
-            ingredients from the best organic crops and wild harvesting. Our raw
-            ingredients are chosen for their exceptional properties on the skin.
+            Every product we feature begins with intention — and it starts at
+            the source. We seek out rare, potent botanicals and high-performance
+            actives, sourced from organic cultivation and wild harvesting where
+            possible. Each ingredient is selected not just for its purity, but
+            for its proven efficacy and skin-loving benefits. This is skincare
+            rooted in quality, ethics, and the quiet power of nature.
           </p>
-          <div className="w-full flex flex-col items-start">
-            <CustomButton
-              buttonText="all ingredients"
-              href=""
-              variant="default"
-            />
-          </div>
         </div>
       </div>
 

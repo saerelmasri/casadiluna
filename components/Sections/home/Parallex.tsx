@@ -26,16 +26,14 @@ export default function Parallex() {
       </div>
       <div className="w-full md:w-[40%] flex justify-center items-end py-8">
         <div className="w-[80%]  bg-white flex flex-col space-y-2 p-6">
-          <h1 className="font-bricolage text-lg">
-            Revitalised skin in 28 days.
-          </h1>
+          <h1 className="font-bricolage text-lg">Awaken Radiance, Naturally</h1>
           <p className="font-instrument text-[13px]">
-            Organic cosmetics, rich in natural ingredients such as plant
-            extracts, essential oils and vitamins, work in harmony with the skin
-            to revitalise it in less than 28 days. Thanks to their composition
-            free from harsh chemicals, they respect the natural balance of the
-            epidermis, promoting better hydration, cell regeneration and reduced
-            irritation.
+            Nature knows how to renew — and so does your skin. Our curated
+            selection of organic and botanical-rich skincare is designed to
+            support the skin’s natural rhythm. With plant-based ingredients,
+            essential oils, and nutrient-rich extracts, these formulas help to
+            hydrate, soothe, and restore balance over time. Embrace a gentle,
+            effective ritual — and reveal skin that looks and feels revitalized.
           </p>
         </div>
       </div>

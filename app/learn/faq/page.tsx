@@ -11,38 +11,38 @@ import {
 
 const qa_products = [
   {
-    title: "How do I know if Nüssa care is right for me?",
+    title: "How do I know if these products are right for me?",
     description:
-      "Nüssa products are suitable for all skin types. If you have any doubts, please consult our detailed product pages.",
+      "Each product featured on our platform is carefully selected for its quality, effectiveness, and compatibility with a range of skin types — including sensitive skin. We recommend exploring the detailed product descriptions, where you’ll find ingredient highlights, skin benefits, and usage tips to help you choose with confidence.",
   },
   {
-    title: "Why use Nüssa beauty tools in your skincare routine?",
+    title: "Why include beauty tools in your skincare ritual?",
     description:
-      "Using Nüssa beauty tools in your skincare routine offers many advantages. Our tools, such as sisal brushes and natural sea sponges, are made from natural, sustainable materials, respecting both your skin and the environment. They enhance the effectiveness of your skincare routine by gently exfoliating, stimulating blood circulation and facilitating product absorption. What's more, these tools provide a pleasant sensory experience, transforming your skincare routine into a genuine moment of well-being and relaxation.",
+      "Thoughtfully chosen beauty tools — like natural sea sponges, facial brushes, or textured exfoliators — can elevate your skincare routine in both results and ritual. These tools help gently exfoliate, boost circulation, and enhance product absorption, all while offering a soothing, spa-like experience at home. We spotlight tools crafted from natural, sustainable materials — because beauty should feel good, do good, and leave a light footprint on the planet.",
   },
   {
-    title: "Why use Nüssa products as a set?",
+    title: "Why use skincare products as a set?",
     description:
-      "Using Nüssa products as a set maximizes the benefits for your skin. Each product is formulated to target specific skin needs, and combining them produces even more effective results. For example, by using an antioxidant-rich day oil in the morning to protect skin from external aggressors, then applying a nourishing night oil at night to regenerate tissues while you sleep, you offer your skin a complete, balanced routine. By using Nüssa products as a set, you can enjoy healthier, radiant, revitalized skin.",
+      " Skincare works best in harmony. Many of the products we feature are designed to complement each other — targeting different needs at different times of day to support the skin’s natural rhythm. Think of an antioxidant-rich day oil to protect and energize, paired with a restorative night formula that nourishes and renews while you sleep. Using products as a set creates a more complete, balanced ritual — leaving your skin radiant, resilient, and beautifully cared for.",
   },
 ];
-const shipping_products = [
-  {
-    title: "When does my order will be send?",
-    description:
-      "Once the order has been confirmed and payment validated, the products will be delivered according to the chosen method and to the delivery address indicated by the purchaser during the ordering process. Orders placed before 2:00 p.m. are prepared and dispatched the same day; after 2:00 p.m., they will be dispatched the following day.",
-  },
-  {
-    title: "How long does delivery take?",
-    description:
-      "Delivery times may vary according to destination. The Seller cannot be held responsible for any delays in delivery. As an indication, the usual delivery times are 48h after the order has been sent.",
-  },
-  {
-    title: "How can I change my delivery address?",
-    description:
-      "If your delivery address is incorrect, please send us an e-mail.",
-  },
-];
+// const shipping_products = [
+//   {
+//     title: "When does my order will be send?",
+//     description:
+//       "Once the order has been confirmed and payment validated, the products will be delivered according to the chosen method and to the delivery address indicated by the purchaser during the ordering process. Orders placed before 2:00 p.m. are prepared and dispatched the same day; after 2:00 p.m., they will be dispatched the following day.",
+//   },
+//   {
+//     title: "How long does delivery take?",
+//     description:
+//       "Delivery times may vary according to destination. The Seller cannot be held responsible for any delays in delivery. As an indication, the usual delivery times are 48h after the order has been sent.",
+//   },
+//   {
+//     title: "How can I change my delivery address?",
+//     description:
+//       "If your delivery address is incorrect, please send us an e-mail.",
+//   },
+// ];
 
 export default function Faq() {
   return (
@@ -88,7 +88,7 @@ export default function Faq() {
             </Accordion>
           ))}
         </div>
-        <div className="flex flex-col md:px-5 space-y-4 w-[90%] lg:w-1/2">
+        {/* <div className="flex flex-col md:px-5 space-y-4 w-[90%] lg:w-1/2">
           <h1 className="font-bricolage text-xl lowercase">
             Shipping & orders
           </h1>
@@ -107,7 +107,7 @@ export default function Faq() {
               </AccordionItem>
             </Accordion>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );

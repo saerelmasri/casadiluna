@@ -14,25 +14,25 @@ export default function GoodToKnow() {
             <p className="lowercase font-instrument text-xs">Good to know</p>
           </div>
           <h1 className="font-bricolage text-4xl md:text-5xl lg:text-5xl lowercase text-wrap">
-            Founded by Sandrine Sixtine, Nüssa is the result of her search for
-            natural solutions to soothe her acne and rosacea-prone skin.
+            Founded from a passion for elevated skincare and a desire for real
+            results, this platform was born out of personal experience — the
+            kind that searches endlessly for comfort, clarity, and confidence in
+            every product used.
           </h1>
         </div>
         <div className="h-full w-full bg-[#f1e4d3]">
           <div className="flex flex-col absolute items-start bottom-0 space-y-4 px-8 py-4 lg:px-7 lg:py-9">
             <p className="font-instrument text-sm text-black">
-              Disappointed by conventional cosmetics, she discovered the power
-              of plants and phytotherapy. Unable to find suitable skin care
-              products, she decided to create clean, natural products, free from
-              fashion or marketing.
+              Disillusioned by overwhelming claims and ingredient confusion, we
+              set out to create a space that cuts through the noise — curating
+              only what works, what feels good, and what aligns with modern,
+              mindful beauty values.
             </p>
             <p className="font-instrument text-sm text-black">
-              Sandrine surrounds herself with biologists and an R&D team to
-              develop gentle, effective skincare products using organic and
-              natural ingredients. The products are made in France, respecting
-              traditional craftsmanship, and are suitable for all skin types,
-              even the most sensitive. Nüssa formulas are water-free, using
-              cold-pressed precious oils and patented active ingredients.
+              Every product featured here is handpicked — chosen for its
+              integrity, innovation, and intention. From heritage formulas to
+              breakthrough actives, we believe skincare should be a ritual, not
+              a routine.
             </p>
           </div>
         </div>

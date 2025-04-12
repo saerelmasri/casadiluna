@@ -13,17 +13,21 @@ export default function AboutUS() {
             </h3>
           </div>
           <p className="text-2xl md:text-3xl lg:text-3xl leading-relaxed font-bricolage">
-            We are a forward-thinking company dedicated to innovation and
-            excellence. Founded in 2015, our mission has been to create
-            solutions that transform industries and improve lives. Our team of
-            passionate experts works tirelessly to push boundaries and challenge
-            conventions.
+            We’re a modern, mindful skincare destination — built on the belief
+            that beauty should be intentional, elevated, and rooted in care. Our
+            mission is simple: to curate clean, effective skincare and wellness
+            products that align with your skin’s needs and your values. Driven
+            by a passion for skin health and sensory rituals, we thoughtfully
+            select products that deliver results while honoring the art of
+            self-care. Through trusted guidance, elegant routines, and
+            ingredient transparency, we’re here to help you feel confident in
+            your skin — every single day.
           </p>
           <div className="flex justify-center items-center py-6">
             <CustomButton
               buttonText="Learn more"
               variant={"outlineTransparent"}
-              href=""
+              href="/learn/about-us"
             />
           </div>
         </div>

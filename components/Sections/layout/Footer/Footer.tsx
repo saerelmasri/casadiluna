@@ -3,11 +3,11 @@ import Link from "next/link";
 const footerLinks = [
   {
     title: "shop",
-    links: ["face", "body", "sets", "beauty tools"],
+    links: ["cleansers", "moisturizers", "serums", "exfoliators", "sun"],
   },
   {
     title: "brand",
-    links: ["journal", "about", "body care", "active ingredients"],
+    links: ["journal", "about", ],
   },
   {
     title: "info",
@@ -27,7 +27,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {section.links.map((link, idx) => (
                 <li key={idx} className="mb-2">
-                  <Link href="#" className="text-sm text-white relative group">
+                  <Link href={`/collections/${link}`} className="text-sm text-white relative group">
                     {link}
                     <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300"></span>
                   </Link>

@@ -2,22 +2,26 @@ export const NavBarContent = {
   shop: {
     items: [
       {
-        collections: [
+        "": [
           {
-            title: "face",
-            url: "/collections/face",
+            title: "Cleansers",
+            url: "/collections/cleansers",
           },
           {
-            title: "body",
-            url: "/collections/body",
+            title: "Moisturizers & Hydration",
+            url: "/collections/moisturizers",
           },
           {
-            title: "set",
-            url: "/collections/set",
+            title: "Serums & Treatments",
+            url: "/collections/serums",
           },
           {
-            title: "beauty tools",
-            url: "/collections/beauty-tools",
+            title: "Exfoliators & Masks",
+            url: "/collections/exfoliators",
+          },
+          {
+            title: "Sun Protection",
+            url: "/collections/sun-protection",
           },
         ],
       },
@@ -60,22 +64,22 @@ export const NavBarContent = {
     ],
     photos: [
       {
-        title: "face",
+        title: "cleansers",
         subtitle: "take care of your skin",
-        imageURL: "/images/face.jpg",
-        url: "/collections/face",
+        imageURL: "/images/cleanser.jpg",
+        url: "/collections/cleansers",
       },
       {
-        title: "super glow set",
+        title: "moisturizers",
         subtitle: "sublimate skin and eyes",
-        imageURL: "/images/products.jpg",
-        url: "/collections/set",
+        imageURL: "/images/moisturizers.jpg",
+        url: "/collections/moisturizers",
       },
       {
-        title: "body",
+        title: "exfoliators",
         subtitle: "find the perfect product",
-        imageURL: "/images/body.jpg",
-        url: "/collections/body",
+        imageURL: "/images/exfoliators.jpg",
+        url: "/collections/exfoliators",
       },
     ],
   },
@@ -117,18 +121,18 @@ export const NavBarContent = {
         imageURL: "/images/shower.jpg",
         url: "/learn/about-us",
       },
-      {
-        title: "ingredients sourcing",
-        subtitle: "our commitment to quality",
-        imageURL: "/images/flower.jpg",
-        url: "/learn/faq",
-      },
-      {
-        title: "body care",
-        subtitle: "nutrition and regeneration for all",
-        imageURL: "/images/showerCare.jpg",
-        url: "/learn/contact",
-      },
+      // {
+      //   title: "ingredients sourcing",
+      //   subtitle: "our commitment to quality",
+      //   imageURL: "/images/flower.jpg",
+      //   url: "/learn/faq",
+      // },
+      // {
+      //   title: "body care",
+      //   subtitle: "nutrition and regeneration for all",
+      //   imageURL: "/images/showerCare.jpg",
+      //   url: "/learn/contact",
+      // },
     ],
   },
 };

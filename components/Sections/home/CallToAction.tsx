@@ -12,16 +12,18 @@ export default function CallToAction() {
         <div className="h-auto lg:h-[50%] w-full bg-[#666a53]">
           <div className="flex flex-col absolute items-start bottom-20 space-y-4 px-8 py-4 lg:px-7 lg:py-9">
             <p className="font-instrument text-sm text-white">
-              Our commitment goes beyond beauty products. We aim to create a
-              lasting positive impact on the environment and communities. Thanks
-              to your orders on our Eshop, we are strengthening our commitment
-              and continuing to replant trees around the world. Since 2018, we
-              have replanted 200,000 trees, the equivalent of a small forest!
+              Our commitment to beauty is intertwined with a deeper respect for
+              the world we share. We believe in offering products that honor
+              both your skin and the environment, carefully selecting brands
+              that uphold sustainable practices, ethical sourcing, and
+              eco-conscious packaging. Through every purchase, you contribute to
+              a global movement toward more mindful, responsible beauty — one
+              that respects nature’s resources and supports positive change.
             </p>
             <CustomButton
               size="sm"
               buttonText="shop now"
-              href=""
+              href="/collections/all"
               variant="secondary"
             />
           </div>

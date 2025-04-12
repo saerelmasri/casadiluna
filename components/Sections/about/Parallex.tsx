@@ -16,11 +16,11 @@ export default function Parallex() {
           <div className="flex items-center">
             <Dot color="white" />
             <p className="font-instrument text-sm md:text-xs text-white lowercase">
-              Our packaging
+              Our Commitment
             </p>
           </div>
           <h1 className="font-bricolage text-5xl md:text-6xl text-white">
-            Fully biodegradable and compostable
+            Beauty With Intention
           </h1>
         </div>
       </div>
@@ -28,11 +28,10 @@ export default function Parallex() {
         <div className="w-[80%]  bg-white flex flex-col space-y-2 p-6">
           <h1 className="font-bricolage text-lg lowercase">Did you know?</h1>
           <p className="font-instrument text-[13px]">
-            Worldwide, the equivalent of 36 soccer pitches of forest disappear
-            every minute. In addition, deforestation is responsible for 15% of
-            annual global CO2 emissions, and therefore plays an important role
-            in climate change. The lives of 80% of animals depend on forests, as
-            do those of the millions of people who live and work in them.
+            Every minute, the world loses forest land equal to 36 soccer fields,
+            a crisis that fuels climate change and threatens biodiversity. It’s
+            why we advocate for conscious beauty, spotlighting brands that honor
+            the planet, its people, and all living things that depend on it.
           </p>
         </div>
       </div>
