@@ -119,7 +119,13 @@ body {
 .body {
   background-image: url("../public/images/body.jpg");
 }
-
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 @theme inline {
   --color-background: var(--background);

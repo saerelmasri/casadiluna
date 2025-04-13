@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
-// import ProductDetails from "@/com omponents/Sections/product/ProductGallery";
+// import ProductDetails from "@/components/Sections/product/ProductGallery";
 
+import OtherProducts from "@/components/Sections/product/OtherProducts";
 import ProductBenefits from "@/components/Sections/product/ProductBenefits";
 import ProductDrawer from "@/components/Sections/product/ProductDrawer";
 import {
@@ -11,6 +13,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Dot, Star } from "lucide-react";
 import Link from "next/link";
 
 export default function ProductPage({
@@ -20,11 +23,50 @@ export default function ProductPage({
 }) {
   const { productId } = params;
 
+  const highlights = [
+    "Cruelty-Free",
+    "Radiant Finish",
+    "Vegan",
+    "Dermatologist Tested",
+    "Non-Comedogenic",
+  ];
+
   return (
     <div className="w-full bg-[#faf4f0]">
       <div className="w-full flex">
-        <div className="w-[60%]"></div>
-        <div className="w-[40%] px-6 py-14 space-y-6 flex flex-col bg-[#faf4f0]">
+        {/* Left: Product Image Gallery with Parallax Effect */}
+        <div className="w-[60%] h-screen overflow-hidden relative">
+          <div className="absolute inset-0 overflow-y-auto no-scrollbar">
+            {/* Image 1 */}
+            <div className="h-screen w-full">
+              <img
+                src="/images/cleanser.jpg"
+                alt="Main product"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Image 2 */}
+            <div className="h-screen w-full flex">
+              <div className="w-1/2 h-full">
+                <img
+                  src="/images/cleanser.jpg"
+                  alt="Product detail 1"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-1/2 h-full">
+                <img
+                  src="/images/cleanser.jpg"
+                  alt="Product detail 2"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Right: Sticky Product Details */}
+        <div className="w-[40%] px-6 py-14 space-y-6 flex flex-col sticky top-0 h-screen overflow-y-auto bg-[#faf4f0] no-scrollbar">
           {/* Tags */}
           <div className="flex space-x-3">
             {["Cleanse", "Nourish"].map((tag) => (
@@ -38,6 +80,13 @@ export default function ProductPage({
           <div className="space-y-1">
             <h1 className="font-bricolage text-4xl lowercase">Cleansing oil</h1>
             <p className="font-bricolage text-lg">€48,00</p>
+          </div>
+
+          {/* Review Stars */}
+          <div className="flex space-x-1">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} size={16} fill="black" color="black" />
+            ))}
           </div>
 
           <Separator />
@@ -109,7 +158,55 @@ export default function ProductPage({
           </div>
         </div>
       </div>
+
+      <div className="h-auto w-full p-8 lg:px-7 lg:py-5 space-y-4">
+        <h1 className="font-bricolage text-4xl md:text-5xl lg:text-5xl lowercase text-wrap text-black">
+          How to use.
+        </h1>
+        <div className="flex items-center">
+          <Dot size={32} color="black" />
+          <p className="font-instrument text-md text-black">
+            Shake well before each use, and keep eyes closed during application.{" "}
+          </p>
+        </div>
+        <div className="flex items-center">
+          <Dot size={32} color="black" />
+          <p className="font-instrument text-md text-black">
+            Hold 10 to 12 inches away from face, and spray in a circular motion
+            for even distribution on skin.
+          </p>
+        </div>
+      </div>
+
       <ProductBenefits />
+
+      {/* Highlights Section */}
+      <div className="w-full px-6 py-16 bg-[#321e1e]">
+        <div className="max-w-4xl mx-auto space-y-6 text-center">
+          <h2 className="font-bricolage text-4xl md:text-5xl text-white lowercase">
+            product highlights
+          </h2>
+          <p className="font-instrument text-sm text-white/70 max-w-xl mx-auto">
+            Thoughtfully formulated with clean beauty standards in mind — each
+            highlight is a promise to your skin.
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
+            {highlights.map((item) => (
+              <div
+                key={item}
+                className="bg-white shadow-md hover:shadow-lg transition-shadow duration-300 border border-black/5 rounded-2xl px-5 py-6 flex items-center justify-center text-center"
+              >
+                <p className="font-instrument text-sm md:text-base text-black">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <OtherProducts />
     </div>
   );
 }
