@@ -26,8 +26,8 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "BALANCE | Skincare Products",
-  description: "1000+ top beauty products in one place",
+  title: "Casa di Luna",
+  description: "Where radiant skin meets refined ritual.",
 };
 
 export default function RootLayout({

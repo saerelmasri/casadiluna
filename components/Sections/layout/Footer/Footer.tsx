@@ -7,7 +7,7 @@ const footerLinks = [
   },
   {
     title: "brand",
-    links: ["journal", "about", ],
+    links: ["journal", "about"],
   },
   {
     title: "info",
@@ -27,7 +27,10 @@ export default function Footer() {
             <ul className="space-y-2">
               {section.links.map((link, idx) => (
                 <li key={idx} className="mb-2">
-                  <Link href={`/collections/${link}`} className="text-sm text-white relative group">
+                  <Link
+                    href={`/collections/${link}`}
+                    className="text-sm text-white relative group"
+                  >
                     {link}
                     <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300"></span>
                   </Link>
@@ -41,13 +44,10 @@ export default function Footer() {
         <div>
           <h3 className="text-white mb-4 font-light">about</h3>
           <p className="text-white/80 text-sm font-light">
-            Essenza Cosmetics is a top-of-the-range organic and natural brand
-            for all skin types, handmade in the South of France and respectful
-            of nature. Thanks to{" "}
-            <Link href="#" className="underline">
-              Essenza
-            </Link>{" "}
-            for allowing us to use their products and content in this demo.
+            Casa di Luna is a curated sanctuary of luxury skincare and wellness
+            rituals. We hand-select nature-inspired products that celebrate
+            radiant skin, modern beauty, and conscious living — all with
+            effortless European elegance.
           </p>
         </div>
       </div>
@@ -55,14 +55,14 @@ export default function Footer() {
       {/* STRETCH Logo */}
       <div className="max-w-7xl mx-auto mb-8">
         <h1 className="text-white text-7xl md:text-[10rem] leading-none font-bold tracking-tighter">
-          ESSENZA
+          Casa di Luna
         </h1>
       </div>
 
       {/* Copyright Section */}
       <div className="max-w-7xl mx-auto border-t border-white/10 pt-6">
         <p className="text-white/80 text-sm font-light">
-          © 2025 - All rights reserved to Essenza
+          © 2025 - All rights reserved to Casa di Luna
         </p>
       </div>
     </footer>

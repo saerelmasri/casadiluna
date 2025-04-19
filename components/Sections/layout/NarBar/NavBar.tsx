@@ -96,7 +96,7 @@ export default function Navbar() {
                   : "text-white"
               }`}
             >
-              Essenza
+              Casa di Luna
             </Link>
 
             {/* Dynamic Navbar Links */}

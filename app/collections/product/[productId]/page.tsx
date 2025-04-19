@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
-// import ProductDetails from "@/components/Sections/product/ProductGallery";
 
 import OtherProducts from "@/components/Sections/product/OtherProducts";
 import ProductBenefits from "@/components/Sections/product/ProductBenefits";
@@ -66,7 +65,7 @@ export default function ProductPage({
           </div>
         </div>
         {/* Right: Sticky Product Details */}
-        <div className="w-[40%] px-6 py-14 space-y-6 flex flex-col sticky top-0 h-screen overflow-y-auto bg-[#faf4f0] no-scrollbar">
+        <div className="w-[40%] h-screen px-6 py-14 space-y-6 flex flex-col sticky top-0 overflow-y-auto bg-[#faf4f0] no-scrollbar">
           {/* Tags */}
           <div className="flex space-x-3">
             {["Cleanse", "Nourish"].map((tag) => (
@@ -178,33 +177,23 @@ export default function ProductPage({
         </div>
       </div>
 
-      <ProductBenefits />
-
-      {/* Highlights Section */}
-      <div className="w-full px-6 py-16 bg-[#321e1e]">
-        <div className="max-w-4xl mx-auto space-y-6 text-center">
-          <h2 className="font-bricolage text-4xl md:text-5xl text-white lowercase">
-            product highlights
-          </h2>
-          <p className="font-instrument text-sm text-white/70 max-w-xl mx-auto">
-            Thoughtfully formulated with clean beauty standards in mind — each
-            highlight is a promise to your skin.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
-            {highlights.map((item) => (
-              <div
-                key={item}
-                className="bg-white shadow-md hover:shadow-lg transition-shadow duration-300 border border-black/5 rounded-2xl px-5 py-6 flex items-center justify-center text-center"
+      {/* Highlights Marquee Section */}
+      <div className="w-full bg-[#faf4f0] border-t border-b border-black/10 overflow-hidden">
+        <div className="py-6 overflow-hidden relative group">
+          <div className="whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused] flex gap-12 px-6">
+            {[...highlights, ...highlights].map((item, index) => (
+              <span
+                key={index}
+                className="text-md md:text-lg font-instrument text-black opacity-90"
               >
-                <p className="font-instrument text-sm md:text-base text-black">
-                  {item}
-                </p>
-              </div>
+                {item}
+              </span>
             ))}
           </div>
         </div>
       </div>
+
+      <ProductBenefits />
 
       <OtherProducts />
     </div>

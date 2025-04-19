@@ -20,7 +20,7 @@ export default function GoodToKnow() {
             every product used.
           </h1>
         </div>
-        <div className="h-full w-full bg-[#f1e4d3]">
+        <div className="h-full w-full bg-transparent">
           <div className="flex flex-col absolute items-start bottom-0 space-y-4 px-8 py-4 lg:px-7 lg:py-9">
             <p className="font-instrument text-sm text-black">
               Disillusioned by overwhelming claims and ingredient confusion, we
