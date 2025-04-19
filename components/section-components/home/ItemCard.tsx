@@ -14,7 +14,7 @@ export type ItemProps = {
 
 export default function ItemCard(props: ItemProps) {
   return (
-    <div className="group relative bg-cover bg-center flex flex-col justify-between overflow-hidden h-full w-full">
+    <Link href={"/collections/product/product-test"} className="group relative bg-cover bg-center flex flex-col justify-between overflow-hidden h-full w-full">
       {/* Default State */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-in-out group-hover:opacity-0"
@@ -57,6 +57,6 @@ export default function ItemCard(props: ItemProps) {
           </Link>
         </Button>
       </div>
-    </div>
+    </Link>
   );
 }
