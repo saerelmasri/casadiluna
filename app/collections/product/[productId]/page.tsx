@@ -21,6 +21,8 @@ export default function ProductPage({
   params: { productId: string };
 }) {
   const { productId } = params;
+  console.log("ProductId:", productId);
+  
 
   const highlights = [
     "Cruelty-Free",
