@@ -15,15 +15,7 @@ import { Separator } from "@/components/ui/separator";
 import { Dot, Star } from "lucide-react";
 import Link from "next/link";
 
-export default function ProductPage({
-  params,
-}: {
-  params: { productId: string };
-}) {
-  const { productId } = params;
-  console.log("ProductId:", productId);
-  
-
+export default function ProductPage() {
   const highlights = [
     "Cruelty-Free",
     "Radiant Finish",
