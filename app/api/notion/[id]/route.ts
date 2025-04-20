@@ -3,10 +3,9 @@ import { getPage } from "@/lib/notion";
 
 export async function GET(
   request: Request,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { params } = context;
     const pageId = params?.id;
 
     if (!pageId) {
