@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from "next/server";
 import { getPage } from "@/lib/notion";
 
-export const GET = async (
+// DO NOT explicitly type the second argument
+export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
-) => {
-  const { id } = params; // Direct access
+  context: any // 👈 let Next.js handle it
+) {
+  const pageId = context?.params?.id;
 
-  if (!id) {
+  if (!pageId) {
     return NextResponse.json(
       { message: "Page ID is missing" },
       { status: 400 }
@@ -15,12 +17,13 @@ export const GET = async (
   }
 
   try {
-    const pageContent = await getPage(id);
+    const pageContent = await getPage(pageId);
     return NextResponse.json(pageContent, { status: 200 });
   } catch (error) {
+    console.error("Error fetching Notion page:", error);
     return NextResponse.json(
       { message: "Internal Server Error", error },
       { status: 500 }
     );
   }
-};
+}
