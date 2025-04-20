@@ -1,17 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getPage } from "@/lib/notion";
 
-type RouteParams = {
-  params: {
-    id: string;
-  };
-};
-
 export const GET = async (
   request: NextRequest,
-  { params }: RouteParams
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse> => {
-  const { id } = params;
+  const { id } = await params;
 
   if (!id) {
     return NextResponse.json(
