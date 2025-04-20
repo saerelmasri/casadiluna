@@ -5,17 +5,17 @@ export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
+  const { id } = params;
+
+  if (!id) {
+    return NextResponse.json(
+      { message: "Page ID is missing" },
+      { status: 400 }
+    );
+  }
+
   try {
-    const pageId = params.id;
-
-    if (!pageId) {
-      return NextResponse.json(
-        { message: "Page ID is missing" },
-        { status: 400 }
-      );
-    }
-
-    const pageContent = await getPage(pageId);
+    const pageContent = await getPage(id);
     return NextResponse.json(pageContent, { status: 200 });
   } catch (error) {
     console.error("Error fetching Notion page:", error);
