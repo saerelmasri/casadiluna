@@ -3,13 +3,13 @@ import { getPage } from "@/lib/notion";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { [key: string]: string | string[] } }
 ) {
   const { id } = params;
 
-  if (!id) {
+  if (!id || Array.isArray(id)) {
     return NextResponse.json(
-      { message: "Page ID is missing" },
+      { message: "Page ID is missing or invalid" },
       { status: 400 }
     );
   }
