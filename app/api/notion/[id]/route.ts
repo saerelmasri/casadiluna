@@ -3,9 +3,9 @@ import { getPage } from "@/lib/notion";
 
 export const GET = async (
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ): Promise<NextResponse> => {
-  const { id } = await params;
+  const { id } = params;
 
   if (!id) {
     return NextResponse.json(
