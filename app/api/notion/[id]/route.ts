@@ -1,12 +1,12 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getPage } from "@/lib/notion";
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const pageId = params?.id;
+    const pageId = params.id;
 
     if (!pageId) {
       return NextResponse.json(
