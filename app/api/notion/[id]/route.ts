@@ -1,15 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getPage } from "@/lib/notion";
 
-export async function GET(
+type RouteParams = {
+  params: {
+    id: string;
+  };
+};
+
+export const GET = async (
   request: NextRequest,
-  { params }: { params: { [key: string]: string | string[] } }
-) {
+  { params }: RouteParams
+): Promise<NextResponse> => {
   const { id } = params;
 
-  if (!id || Array.isArray(id)) {
+  if (!id) {
     return NextResponse.json(
-      { message: "Page ID is missing or invalid" },
+      { message: "Page ID is missing" },
       { status: 400 }
     );
   }
@@ -24,4 +30,4 @@ export async function GET(
       { status: 500 }
     );
   }
-}
+};
