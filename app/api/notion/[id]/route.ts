@@ -1,9 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from "next/server";
 import { getPage } from "@/lib/notion";
 
-export async function GET(request: NextRequest, context: any) {
-  const pageId = context.params?.id;
+type Params = {
+  params: Promise<{ id: string }>;
+};
+
+export async function GET(request: NextRequest, context: Params) {
+  const { id: pageId } = await context.params;
 
   if (!pageId) {
     return NextResponse.json(

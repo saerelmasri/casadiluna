@@ -49,7 +49,7 @@ export default function ProductDetails({ product }: { product: any }) {
         {product.description}
       </p>
 
-      <ProductDrawer content="Olive oil, almond oil, tocopherol, essential oils, ...etc." />
+      <ProductDrawer />
     </div>
   );
 }
